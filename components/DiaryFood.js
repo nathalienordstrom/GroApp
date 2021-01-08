@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native'
-
 const DiaryFood = ({ item, pressHandler }) => {
 
     return (

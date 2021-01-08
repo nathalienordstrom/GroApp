@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, Image, Alert } from 'react-native'
+import { FlatList, StyleSheet, Image, Alert, ScrollView } from 'react-native'
 import styled from 'styled-components/native';
+
 import headerImage from '../assets/gro..png';
 import apple from '../assets/apple.png';
-import appleblom from '../assets/appelblom.png';
+import appleKlyfta from '../assets/appelklyfta.png';
+import appleBlom from '../assets/appelblom.png';
 
 import DiaryAdd from './DiaryAdd'
 import DiaryFood from './DiaryFood'
 import DiaryInput from './DiaryInput'
+import Footer from './Footer'
+
+import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const Diary = () => {
     const [food, setFood] = useState([
@@ -41,43 +47,62 @@ const Diary = () => {
     }
 
     return (
-        <Main>
-            <HeaderContainer>
-                <Image source={headerImage} style={styles.image} />
-            </HeaderContainer>
+        <>
+            <Main>
+                <ScrollView>
+                    
+                    <HeaderContainer>
+                        <Image source={headerImage} style={styles.image} />
+                    </HeaderContainer>
 
 
 
-            <FormContainer>
+                    <FormContainer>
 
-                <Apple>
-                    <Image source={apple} style={styles.imageApple} />
-                </Apple>
-                <DivAdd>
-                    <Rubrik>Dagens Mat</Rubrik>
-                    <DiaryAdd submitHandler={submitHandler} />
-                </DivAdd>
-                <AppleBlom>
-                    <Image source={appleblom} style={styles.imageAppleBlom} />
-            </AppleBlom>
-            </FormContainer>
+                        <Apple>
+                            <Image source={apple} style={styles.imageApple} />
+                        </Apple>
+                        <DivAdd>
+                            <Rubrik>Dagens Mat</Rubrik>
+                            <DiaryAdd submitHandler={submitHandler} />
+                        </DivAdd>
+                        <AppleKlyfta>
+                            <Image source={appleKlyfta} style={styles.imageAppleKlyfta} />
+                        </AppleKlyfta>
+                    </FormContainer>
 
-            <ListContainer>
-                <List>
+                    <ListContainer>
+                        <List>
 
-                    <FlatList
-                        data={food}
-                        renderItem={({ item }) => (
-                            <DiaryFood item={item} pressHandler={pressHandler} />
-                        )}
-                    />
-                </List>
-            </ListContainer>
+                            <FlatList
+                                data={food}
+                                renderItem={({ item }) => (
+                                    <DiaryFood item={item} pressHandler={pressHandler} />
+                                )}
+                            />
+                        </List>
+                    </ListContainer>
 
-            <CommentContainer>
-                <DiaryInput />
-            </CommentContainer>
-        </Main>
+                    <PhotoDiv>
+                        <PhotoContent>
+                            <Feather name="camera" size={24} color="white" />
+                            <Photo>
+                                <AntDesign name="picture" size={50} color="white" />
+                            </Photo>
+                        </PhotoContent>
+                        <AppleBlom>
+                            <Image source={appleBlom} style={styles.imageAppleBlom} />
+                        </AppleBlom>
+                    </PhotoDiv>
+
+                    <CommentContainer>
+                        <DiaryInput />
+                    </CommentContainer>
+
+                </ScrollView>
+            </Main>
+            <Footer />
+        </>
     )
 
 }
@@ -89,21 +114,24 @@ const styles = StyleSheet.create({
         marginRight: 20
     },
     imageApple: {
-        height: 80,
-        width: 80,
+        height: 90,
+        width: 90,
     },
     imageAppleBlom: {
-        height: 40,
+        height: 90,
+        width: 150,
+    },
+    imageAppleKlyfta: {
+        height: 70,
         width: 70,
     }
 })
 
 const Main = styled.View`
-    background-color: #BD614E;
-    flex: 1;
-    align-items: center;
+background-color: #BD614E;
+flex: 1;
+align-items: center;
 `
-
 const HeaderContainer = styled.View`
 width: 100%;
 align-items: flex-end;
@@ -119,15 +147,15 @@ justify-content: space-between;
 `
 const Apple = styled.View`
 justify-content: center; 
-padding-left: 10px;
+
+`
+const AppleKlyfta = styled.View`
+
 `
 
 const DivAdd = styled.View`
 padding: 0;
 align-items: center;
-`
-const AppleBlom = styled.View`
-padding-left: 2px;
 `
 const Rubrik = styled.Text`
 color: white;
@@ -137,25 +165,44 @@ font-size: 20px;
 const ListContainer = styled.View`
 width: 100%;
 align-items: center;
-margin-top: 10px;
+margin-bottom: 10px;
 `
-
-
 const List = styled.View`
 border-radius: 20px;
 margin-top: 20px;
 margin-bottom: 20px;
 background-color: white;
 padding: 15px 0 15px 10px;
-width: 350px;
+width: 320px;
 box-shadow: 0px 0px 8px #6F392E;
-
 `
-
+const PhotoDiv = styled.View`
+width: 100%;
+flex-direction:row;
+justify-content: space-between;
+`
+const PhotoContent = styled.View`
+flex-direction: row;
+margin-left: 50px;
+`
+const Photo = styled.View`
+border: solid white 3px;
+border-radius: 10px;
+width:120px;
+margin-left: 10px;
+align-items: center;
+justify-content: center;
+`
+const AppleBlom = styled.View`
+align-items: flex-end;
+padding: 10px 0 10px 0;
+margin-left: 19px;
+`
 const CommentContainer = styled.View` 
 width: 100%;
 align-items: center;
 `
+
 
 
 export default Diary;

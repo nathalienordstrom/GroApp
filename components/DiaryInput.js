@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native';
 import { TouchableOpacity, StyleSheet } from 'react-native'
-
+import { Entypo } from '@expo/vector-icons';
 
 const DiaryInput = ({ submitHandler }) => {
     const [text, setText] = useState('');
@@ -16,8 +16,10 @@ const DiaryInput = ({ submitHandler }) => {
     return (
         <Main>
             <InputBox>
+            <Entypo name="pencil" size={20} color="white" />
                 <Input
                     multiline
+                    placeholderTextColor="white"
                     maxLength='100'
                     placeholder='Skriv en kommentar'
                     onChangeText={(val) => changeHandler(val)}
@@ -48,7 +50,7 @@ font-size: 15px;
 const InputBox = styled.View`
 height: 150px;
 padding:15px;
-background: white;
+border: dotted white 2px;
 margin-top:10px;
 border-radius:10px;
 width: 300px;
