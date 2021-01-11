@@ -26,7 +26,7 @@ color:black;
 `
 const List = styled.View`
 border-radius: 20px;
-max-width: 320px;
+width: 320px;
 padding: 10px 0 10px 0px;
 flex-direction: row;
 align-items:center;

@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, Button } from 'react-native';
 import logo from '../assets/background.png';
 
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
+
     return (
         <Container>
             <Logo>
                 <Image source={logo} style={styles.image} />
             </Logo>
-
+        
+            <Button title="Start" onPress={() => navigation.navigate('Diary')} />
+            
         </Container >
     )
 
@@ -19,7 +22,7 @@ const HomePage = () => {
 const styles = StyleSheet.create({
     image: {
         width: 400,
-        height: 800
+        height: 700
     }
 })
 
@@ -35,6 +38,5 @@ justify-content:flex-start;
 const Logo = styled.View`
 margin-top: 40px;
 `
-
 
 export default HomePage;

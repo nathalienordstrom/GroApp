@@ -1,23 +1,29 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components/native';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 
+import Header from '../components/Header'
+
+import { globalStyles } from '../components/Global';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
 
-const Footer = ({ navigation }) => {
-
+const Statistics = ({ navigation }) => {
     return (
-        <FooterContainer>
+        <>
+            <Main>
+                <Header />
+                
+            </Main>
+            <FooterContainer> 
             <Icon>
                 <Button title="Start" onPress={() => navigation.navigate('Diary')} />
                 <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#BD614E" />
                 <Text>Dagbok</Text>
             </Icon>
-
             <Icon>
                 <Button title="Start" onPress={() => navigation.navigate('Explore')} />
                 <FontAwesome5 name="readme" size={40} color="#5A673E" />
@@ -35,10 +41,15 @@ const Footer = ({ navigation }) => {
                 <FontAwesome name="child" size={40} color="#CE7937" />
                 <Text>Profil</Text>
             </Icon>
-        </FooterContainer>
+            </FooterContainer>
+        </>
     )
-
 }
+
+const Main = styled.View`
+flex: 1;
+background-color:#E4C9D6;
+`
 
 const FooterContainer = styled.View`
 margin-top: 0px;
@@ -56,5 +67,4 @@ const Icon = styled.View`
 align-items: center;
 `
 
-
-export default Footer;
+export default Statistics

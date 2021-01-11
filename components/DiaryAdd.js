@@ -14,7 +14,7 @@ const DiaryAdd = ({ submitHandler }) => {
             <InputBox>
                 <Input
                     placeholderTextColor="white"
-                    maxLength='25'
+              
                     placeholder='...'
                     onChangeText={(val) => changeHandler(val)}
                 />

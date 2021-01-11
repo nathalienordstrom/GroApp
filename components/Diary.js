@@ -1,21 +1,25 @@
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, Image, Alert, ScrollView } from 'react-native'
+import { FlatList, StyleSheet, Image, Alert, ScrollView, Button } from 'react-native'
 import styled from 'styled-components/native';
 
-import headerImage from '../assets/gro..png';
 import apple from '../assets/apple.png';
 import appleKlyfta from '../assets/appelklyfta.png';
 import appleBlom from '../assets/appelblom.png';
 
+import Header from './Header'
 import DiaryAdd from './DiaryAdd'
 import DiaryFood from './DiaryFood'
 import DiaryInput from './DiaryInput'
 import Footer from './Footer'
 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-const Diary = () => {
+const Diary = ({ navigation}) => {
     const [food, setFood] = useState([
         // { text: 'Broccoli', key: '1' },
         // { text: 'Morot', key: '2' },
@@ -51,12 +55,8 @@ const Diary = () => {
             <Main>
                 <ScrollView>
                     
-                    <HeaderContainer>
-                        <Image source={headerImage} style={styles.image} />
-                    </HeaderContainer>
-
-
-
+                    <Header />
+                 
                     <FormContainer>
 
                         <Apple>
@@ -101,18 +101,37 @@ const Diary = () => {
 
                 </ScrollView>
             </Main>
-            <Footer />
+            <FooterContainer> 
+            <Icon>
+                <Button title="Start" onPress={() => navigation.navigate('Diary')} />
+                <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#BD614E" />
+                <Text>Dagbok</Text>
+            </Icon>
+            <Icon>
+                <Button title="Start" onPress={() => navigation.navigate('Explore')} />
+                <FontAwesome5 name="readme" size={40} color="#5A673E" />
+                <Text>Utforska</Text>
+            </Icon>
+
+            <Icon>
+                <Button title="Start" onPress={() => navigation.navigate('Statistics')} />
+                <FontAwesome name="bar-chart" size={40} color="#E4C9D6" />
+                <Text>Statestik</Text>
+            </Icon>
+
+            <Icon>
+                <Button title="Start" onPress={() => navigation.navigate('Profile')} />
+                <FontAwesome name="child" size={40} color="#CE7937" />
+                <Text>Profil</Text>
+            </Icon>
+            </FooterContainer>
+            
         </>
     )
 
 }
 
 const styles = StyleSheet.create({
-    image: {
-        height: 70,
-        width: 122,
-        marginRight: 20
-    },
     imageApple: {
         height: 90,
         width: 90,
@@ -125,6 +144,7 @@ const styles = StyleSheet.create({
         height: 70,
         width: 70,
     }
+
 })
 
 const Main = styled.View`
@@ -132,12 +152,7 @@ background-color: #BD614E;
 flex: 1;
 align-items: center;
 `
-const HeaderContainer = styled.View`
-width: 100%;
-align-items: flex-end;
-justify-content: center;
-margin-top: 50px;
-`
+
 
 const FormContainer = styled.View`
 margin-top: 20px;
@@ -203,6 +218,20 @@ width: 100%;
 align-items: center;
 `
 
+const FooterContainer = styled.View`
+margin-top: 0px;
+height: 100px;
+width: 100%;
+flex-direction:row;
+align-items: center;
+justify-content: space-evenly;
+`
+const Text = styled.Text`
+font-size: 15px;
+`
 
+const Icon = styled.View`
+align-items: center;
+`
 
 export default Diary;
