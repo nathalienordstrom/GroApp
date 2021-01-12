@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Button } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import Header from '../components/Header'
 
@@ -18,27 +18,31 @@ const Profile = ({ navigation }) => {
             </Main>
             <FooterContainer> 
             <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Diary')} />
-                <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#BD614E" />
+            <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
+                <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#ABA97B" />
                 <Text>Dagbok</Text>
+                </TouchableOpacity>
             </Icon>
-            <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Explore')} />
-                <FontAwesome5 name="readme" size={40} color="#5A673E" />
+            <Icon> 
+            <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
+                <FontAwesome5 name="readme" size={40} color="#ABA97B" />
                 <Text>Utforska</Text>
+                </TouchableOpacity>
             </Icon>
 
             <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Statistics')} />
-                <FontAwesome name="bar-chart" size={40} color="#E4C9D6" />
+            <TouchableOpacity onPress={() => navigation.navigate('Statistics')}>
+                <FontAwesome name="bar-chart" size={40} color="#ABA97B" />
                 <Text>Statestik</Text>
+                </TouchableOpacity>
             </Icon>
 
             <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Profile')} />
-                <FontAwesome name="child" size={40} color="#CE7937" />
+            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                <FontAwesome name="child" size={40} color="#CE7937" onPress={() => navigation.navigate('Profile')}  />
                 <Text>Profil</Text>
-            </Icon>
+                </TouchableOpacity>
+            </Icon> 
             </FooterContainer>
         </>
     )

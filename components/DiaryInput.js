@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native';
-import { TouchableOpacity, StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Entypo } from '@expo/vector-icons';
 
 const DiaryInput = ({ submitHandler }) => {
@@ -25,19 +25,32 @@ const DiaryInput = ({ submitHandler }) => {
                     onChangeText={(val) => changeHandler(val)}
                 />
             </InputBox>
-            <TouchableOpacity onPress={() => submitHandler(text)} >
-                <ButtonBox>
+            <TouchableOpacity onPress={() => submitHandler(text)}  >
+                <View style={styles.button}>
 
                     <ButtonText>Spara</ButtonText>
 
-                </ButtonBox>
+                </View>
             </TouchableOpacity>
         </Main>
     )
 
 }
 
-
+const styles = StyleSheet.create({
+    button: {
+        width: 100,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: '#202020',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
+        borderRadius: 50,
+        backgroundColor: 'coral',
+        marginTop: 5,
+    }
+})
 
 const Main = styled.View`
 margin-top: 20px;
@@ -58,16 +71,6 @@ margin-bottom: 10px;
 box-shadow: 0px 0px 8px #6F392E;
 `
 
-
-const ButtonBox = styled.View`
-border-radius: 10px;
-background-color: coral;
-width:100px;
-padding: 10px;
-align-items: center;
-font-weight:bold;
-height:40px;
-`
 const ButtonText = styled.Text`
 color: white;
 font-weight:bold;

@@ -17,26 +17,58 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name='Home'
-          component={HomePage}
+        
+      <Stack.Screen
+          name="HomePage"
+          component={HomePage} />
+
+      <Stack.Screen
+          name="Explore"
+          component={Explore}
+          options={{
+            title: 'Utforska',
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#5A673E',
+            },
+          }}
         />
 
-        <Stack.Screen
-          name="Diary"
-          component={Diary} />
 
         <Stack.Screen
-          name="Explore"
-          component={Explore} />
+          name='Diary'
+          component={Diary}
+          options={{
+            title: 'Dagbok',
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#BD614E',
+            },
+          }}
+        />
 
-           <Stack.Screen 
-        name="Statistics" 
-        component={Statistics}/>
 
-         <Stack.Screen 
-        name="Profile" 
-        component={Profile}/>
+        <Stack.Screen
+          name="Statistics"
+          component={Statistics}
+          options={{
+            title: 'Statestik',
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#C497A4',
+            },
+          }} />
+
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            title: 'Profil',
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#CE7937',
+            },
+          }} />
       </Stack.Navigator>
     </NavigationContainer>
 

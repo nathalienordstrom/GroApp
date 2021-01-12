@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, Image, Alert, ScrollView, Button } from 'react-native'
+import { FlatList, StyleSheet, Image, Alert, ScrollView, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native';
 
 import apple from '../assets/apple.png';
 import appleKlyfta from '../assets/appelklyfta.png';
 import appleBlom from '../assets/appelblom.png';
 
-import Header from './Header'
+import Header from '../components/Header'
 import DiaryAdd from './DiaryAdd'
 import DiaryFood from './DiaryFood'
 import DiaryInput from './DiaryInput'
-import Footer from './Footer'
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -18,8 +17,9 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import AppLoading from 'expo-app-loading';
 
-const Diary = ({ navigation}) => {
+const Diary = ({ navigation }) => {
     const [food, setFood] = useState([
         // { text: 'Broccoli', key: '1' },
         // { text: 'Morot', key: '2' },
@@ -54,9 +54,9 @@ const Diary = ({ navigation}) => {
         <>
             <Main>
                 <ScrollView>
-                    
+
                     <Header />
-                 
+
                     <FormContainer>
 
                         <Apple>
@@ -101,31 +101,35 @@ const Diary = ({ navigation}) => {
 
                 </ScrollView>
             </Main>
-            <FooterContainer> 
-            <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Diary')} />
-                <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#BD614E" />
-                <Text>Dagbok</Text>
-            </Icon>
-            <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Explore')} />
-                <FontAwesome5 name="readme" size={40} color="#5A673E" />
-                <Text>Utforska</Text>
-            </Icon>
+            <FooterContainer>
+                <Icon>
+                    <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
+                        <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#BD614E" />
+                        <Text>Dagbok</Text>
+                    </TouchableOpacity>
+                </Icon>
+                <Icon>
+                    <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
+                        <FontAwesome5 name="readme" size={40} color="#ABA97B" />
+                        <Text>Utforska</Text>
+                    </TouchableOpacity>
+                </Icon>
 
-            <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Statistics')} />
-                <FontAwesome name="bar-chart" size={40} color="#E4C9D6" />
-                <Text>Statestik</Text>
-            </Icon>
+                <Icon>
+                    <TouchableOpacity onPress={() => navigation.navigate('Statistics')}>
+                        <FontAwesome name="bar-chart" size={40} color="#ABA97B" />
+                        <Text>Statestik</Text>
+                    </TouchableOpacity>
+                </Icon>
 
-            <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Profile')} />
-                <FontAwesome name="child" size={40} color="#CE7937" />
-                <Text>Profil</Text>
-            </Icon>
+                <Icon>
+                    <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                        <FontAwesome name="child" size={40} color="#ABA97B" onPress={() => navigation.navigate('Profile')} />
+                        <Text>Profil</Text>
+                    </TouchableOpacity>
+                </Icon>
             </FooterContainer>
-            
+
         </>
     )
 
@@ -135,14 +139,23 @@ const styles = StyleSheet.create({
     imageApple: {
         height: 90,
         width: 90,
+        shadowColor: '#202020',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
     },
     imageAppleBlom: {
         height: 90,
         width: 150,
+        shadowColor: '#202020',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
     },
     imageAppleKlyfta: {
         height: 70,
         width: 70,
+        shadowColor: '#202020',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
     }
 
 })
@@ -155,7 +168,7 @@ align-items: center;
 
 
 const FormContainer = styled.View`
-margin-top: 20px;
+margin-top: 0px;
 width: 100%;
 flex-direction:row;
 justify-content: space-between;

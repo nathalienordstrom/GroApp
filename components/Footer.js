@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native';
-import { Button } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -11,31 +11,34 @@ import { FontAwesome } from '@expo/vector-icons';
 const Footer = ({ navigation }) => {
 
     return (
-        <FooterContainer>
+        <FooterContainer> 
             <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Diary')} />
+            <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
                 <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#BD614E" />
                 <Text>Dagbok</Text>
+                </TouchableOpacity>
             </Icon>
-
-            <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Explore')} />
+            <Icon> 
+            <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
                 <FontAwesome5 name="readme" size={40} color="#5A673E" />
                 <Text>Utforska</Text>
+                </TouchableOpacity>
             </Icon>
 
             <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Statistics')} />
+            <TouchableOpacity onPress={() => navigation.navigate('Statistics')}>
                 <FontAwesome name="bar-chart" size={40} color="#E4C9D6" />
                 <Text>Statestik</Text>
+                </TouchableOpacity>
             </Icon>
 
             <Icon>
-                <Button title="Start" onPress={() => navigation.navigate('Profile')} />
-                <FontAwesome name="child" size={40} color="#CE7937" />
+            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                <FontAwesome name="child" size={40} color="#CE7937" onPress={() => navigation.navigate('Profile')}  />
                 <Text>Profil</Text>
-            </Icon>
-        </FooterContainer>
+                </TouchableOpacity>
+            </Icon> 
+            </FooterContainer>
     )
 
 }

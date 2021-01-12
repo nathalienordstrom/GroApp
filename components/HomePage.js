@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, Image, Button } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import logo from '../assets/background.png';
 
+import { EvilIcons } from '@expo/vector-icons';
 
 const HomePage = ({ navigation }) => {
 
     return (
         <Container>
-            <Logo>
+            <BackgroundImage>
                 <Image source={logo} style={styles.image} />
-            </Logo>
-        
-            <Button title="Start" onPress={() => navigation.navigate('Diary')} />
-            
+            </BackgroundImage>
+            <Icon>
+                <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
+                    <EvilIcons name="arrow-right" size={90} color="#ABA97B"  />
+                </TouchableOpacity>
+            </Icon>
         </Container >
     )
 
@@ -21,8 +24,8 @@ const HomePage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     image: {
-        width: 400,
-        height: 700
+        width: 350,
+        height: 600
     }
 })
 
@@ -35,8 +38,11 @@ color: white;
 flex-direction: column;
 justify-content:flex-start;
 `
-const Logo = styled.View`
-margin-top: 40px;
+const BackgroundImage = styled.View`
+margin-top: 0px;
+`
+const Icon = styled.View`
+align-items:center;
 `
 
 export default HomePage;
