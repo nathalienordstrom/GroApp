@@ -1,7 +1,10 @@
-import * as React from 'react';
+import * as React from 'react'
+import { useState } from 'react';
 
 import Diary from './components/Diary';
 import Explore from './components/Explore';
+import ExploreOne from './components/ExploreOne';
+import ExploreTwo from './components/ExploreTwo';
 import Profile from './components/Profile';
 import Statistics from './components/Statistics';
 import HomePage from './components/HomePage';
@@ -14,27 +17,32 @@ import 'react-native-gesture-handler';
 const Stack = createStackNavigator();
 
 const App = () => {
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        
-      <Stack.Screen
-          name="HomePage"
-          component={HomePage} />
 
-      <Stack.Screen
+      <Stack.Navigator initialRouteName="HomeActivity"
+        screenOptions={{ headerShown: false }} initialRouteName="Home">
+
+<Stack.Screen
           name="Explore"
           component={Explore}
-          options={{
-            title: 'Utforska',
-            headerTintColor: '#fff',
-            headerStyle: {
-              backgroundColor: '#5A673E',
-            },
-          }}
         />
 
 
+        <Stack.Screen
+          name="ExploreOne"
+          component={ExploreOne}
+        />
+        <Stack.Screen
+          name="ExploreTwo"
+          component={ExploreTwo}
+        />
+
+        <Stack.Screen
+          name="HomePage"
+          component={HomePage} />
+          
         <Stack.Screen
           name='Diary'
           component={Diary}
@@ -76,18 +84,3 @@ const App = () => {
 }
 
 export default App;
-
-
-// const App = () => {
-//   return (
-//     <>
-//       <NavigationContainer>
-//         <Stack.Navigator>
-//           <Stack.Screen name="HomePage" component={HomaPage} />
-//         </Stack.Navigator>
-
-//       </NavigationContainer>
-
-//     </>
-//   );
-// }

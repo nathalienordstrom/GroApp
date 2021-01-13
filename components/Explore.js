@@ -13,6 +13,15 @@ import Photo1 from '../assets/baby1.jpg'
 import Photo2 from '../assets/baby2.jpg'
 import Photo3 from '../assets/baby3.jpg'
 import Photo4 from '../assets/baby4.jpg'
+import Photo5 from '../assets/baby5.png'
+import Photo6 from '../assets/baby6.jpg'
+import Photo7 from '../assets/baby7.jpg'
+import Photo8 from '../assets/baby8.jpg'
+import Photo9 from '../assets/baby9.jpg'
+
+const PhotoOne = 'https://www.babycentre.co.uk/ims/2019/09/iStock-466485259_wide.jpg.pagespeed.ce.di6DcclGzG.jpg'
+const PhotosTwo = 'https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/foodnavigator-usa.com/news/r-d/study-addressing-the-market-void-in-baby-food-that-actually-tastes-like-vegetables/10960764-1-eng-GB/Study-Addressing-the-market-void-in-baby-food-that-actually-tastes-like-vegetables_wrbm_large.jpg'
+const PhotosThree = 'https://www.ucl.ac.uk/news/sites/news/files/styles/large_image/public/toddlereating.jpg?itok=CZeSq4-8'
 
 import Pea1 from '../assets/pea1.png'
 import Pea2 from '../assets/pea2.png'
@@ -25,81 +34,91 @@ const Explore = ({ navigation }) => {
     return (
         <>
             <Main>
-            <ScrollView>
-                <Header />
-                
+                <ScrollView>
+                    <HeaderContainer>
+                        <HeaderText>
+                            Utforska
+                        </HeaderText>
+                        <Header />
+                    </HeaderContainer>
+
                     <Container>
                         <Boxes>
                             <BoxText>
-                                Prova mat - del 1
+                                Hur börjar man?
                 </BoxText>
-                <ScrollView  horizontal={true}>
-                            <View style={styles.overlayView}>
-                                <View style={styles.overlay}>
-                                    <Image source={Photo1} style={styles.photo} />
-
-                                    <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
-                                </View>
-
+                            <ScrollView horizontal={true}>
 
                                 <View style={styles.overlayView}>
                                     <View style={styles.overlay}>
-                                        <Image source={Photo2} style={styles.photo} />
+                                        <TouchableOpacity onPress={() => navigation.navigate('ExploreOne')}>
+                                            <Image source={Photo2} style={styles.photo} />
+                                        </TouchableOpacity>
+                                        <Text style={styles.overlayText}>Svårt att sitta själv?</Text>
 
-                                        <Text style={styles.overlayText}> Hur ska man börja? </Text>
-                                    </View>
-
-                                    <View style={styles.overlay}>
-                                        <Image source={Photo3} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Hur ska man börja?  </Text>
-                                    </View>
-
-                                    <View style={styles.overlay}>
-                                        <Image source={Photo4} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Hur ska man börja?  </Text>
                                     </View>
 
 
+                                    <View style={styles.overlayView}>
+                                        <View style={styles.overlay}>
+                                            <TouchableOpacity onPress={() => navigation.navigate('ExploreTwo')}>
+                                                <Image source={Photo4} style={styles.photo} />
+                                            </TouchableOpacity>
+                                            <Text style={styles.overlayText}>Hur börjar man?</Text>
+                                        </View>
+
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo3} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}>Tungmotorik</Text>
+                                        </View>
+
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo5} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}> Hur ska man börja?  </Text>
+                                        </View>
+
+
+                                    </View>
                                 </View>
-                            </View>
                             </ScrollView>
                         </Boxes>
 
-                       
+
                         <Image source={Pea1} style={styles.pea1} />
-                    
+
 
                         <Boxes>
                             <BoxText>
                                 Prova mat - del 2
                 </BoxText>
-                <ScrollView  horizontal={true}>
-                            <View style={styles.overlayView}>
-                                <View style={styles.overlay}>
-                                    <Image source={Photo1} style={styles.photo} />
-
-                                    <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
-                                </View>
-
+                            <ScrollView horizontal={true}>
 
                                 <View style={styles.overlayView}>
                                     <View style={styles.overlay}>
-                                        <Image source={Photo2} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Hur ska man börja? </Text>
+                                        <Image source={PhotosThree} style={styles.photo} />
+                                        <Text style={styles.overlayText}> Ser och lär  </Text>
                                     </View>
 
                                     <View style={styles.overlay}>
-                                        <Image source={Photo1} style={styles.photo} />
+                                        <Image source={PhotosTwo} style={styles.photo} />
+                                        <Text style={styles.overlayText}> Variation </Text>
+                                    </View>
 
-                                        <Text style={styles.overlayText}> Hej </Text>
+                                    <View style={styles.overlay}>
+                                        <Image source={PhotoOne} style={styles.photo} />
+                                        <Text style={styles.overlayText}> Nytt sammanhang </Text>
+                                    </View>
+
+                                    <View style={styles.overlay}>
+                                        <Image source={Photo9} style={styles.photo} />
+                                        <Text style={styles.overlayText}> Det ska kladda </Text>
                                     </View>
 
 
                                 </View>
-                            </View>
+
                             </ScrollView>
                         </Boxes>
 
@@ -109,31 +128,31 @@ const Explore = ({ navigation }) => {
                             <BoxText>
                                 Gluten
                 </BoxText>
-                <ScrollView  horizontal={true}>
-                            <View style={styles.overlayView}>
-                                <View style={styles.overlay}>
-                                    <Image source={Photo1} style={styles.photo} />
-
-                                    <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
-                                </View>
-
-
+                            <ScrollView horizontal={true}>
                                 <View style={styles.overlayView}>
                                     <View style={styles.overlay}>
-                                        <Image source={Photo2} style={styles.photo} />
+                                        <Image source={Photo7} style={styles.photo} />
 
-                                        <Text style={styles.overlayText}> Hur ska man börja? </Text>
-                                    </View>
-
-                                    <View style={styles.overlay}>
-                                        <Image source={Photo1} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Hej </Text>
+                                        <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
                                     </View>
 
 
+                                    <View style={styles.overlayView}>
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo2} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}> Hur ska man börja? </Text>
+                                        </View>
+
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo7} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}> Hej </Text>
+                                        </View>
+
+
+                                    </View>
                                 </View>
-                            </View>
                             </ScrollView>
                         </Boxes>
 
@@ -142,31 +161,31 @@ const Explore = ({ navigation }) => {
                             <BoxText>
                                 8 x regeln
                 </BoxText>
-                <ScrollView  horizontal={true}>
-                            <View style={styles.overlayView}>
-                                <View style={styles.overlay}>
-                                    <Image source={Photo1} style={styles.photo} />
-
-                                    <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
-                                </View>
-
-
+                            <ScrollView horizontal={true}>
                                 <View style={styles.overlayView}>
-                                    <View style={styles.overlay}>
-                                        <Image source={Photo2} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Hur ska man börja? </Text>
-                                    </View>
-
                                     <View style={styles.overlay}>
                                         <Image source={Photo1} style={styles.photo} />
 
-                                        <Text style={styles.overlayText}> Hej </Text>
+                                        <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
                                     </View>
 
 
+                                    <View style={styles.overlayView}>
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo2} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}> Hur ska man börja? </Text>
+                                        </View>
+
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo1} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}> Hej </Text>
+                                        </View>
+
+
+                                    </View>
                                 </View>
-                            </View>
                             </ScrollView>
                         </Boxes>
                         <Image source={Pea4} style={styles.pea4} />
@@ -174,31 +193,31 @@ const Explore = ({ navigation }) => {
                             <BoxText>
                                 Allergi
                 </BoxText>
-                <ScrollView  horizontal={true}>
-                            <View style={styles.overlayView}>
-                                <View style={styles.overlay}>
-                                    <Image source={Photo1} style={styles.photo} />
-
-                                    <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
-                                </View>
-
-
+                            <ScrollView horizontal={true}>
                                 <View style={styles.overlayView}>
-                                    <View style={styles.overlay}>
-                                        <Image source={Photo2} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Hur ska man börja? </Text>
-                                    </View>
-
                                     <View style={styles.overlay}>
                                         <Image source={Photo1} style={styles.photo} />
 
-                                        <Text style={styles.overlayText}> Hej </Text>
+                                        <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
                                     </View>
 
 
+                                    <View style={styles.overlayView}>
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo2} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}> Hur ska man börja? </Text>
+                                        </View>
+
+                                        <View style={styles.overlay}>
+                                            <Image source={Photo1} style={styles.photo} />
+
+                                            <Text style={styles.overlayText}> Hej </Text>
+                                        </View>
+
+
+                                    </View>
                                 </View>
-                            </View>
                             </ScrollView>
                         </Boxes>
                     </Container>
@@ -295,6 +314,7 @@ const styles = StyleSheet.create({
     },
     overlayText: {
         fontSize: 10,
+        fontWeight: "bold",
         color: 'white',
         paddingTop: 7,
         paddingBottom: 7,
@@ -304,6 +324,17 @@ const styles = StyleSheet.create({
 const Main = styled.View`
 flex: 1;
 background-color:#5A673E;
+`
+const HeaderContainer = styled.View`
+margin-top: 40px;
+justify-content: space-between;
+flex-direction: row;
+`
+const HeaderText = styled.Text`
+padding: 10px 0 0 40px;
+color: white;
+font-size: 35px;
+align-items: center;
 `
 
 const Container = styled.View`

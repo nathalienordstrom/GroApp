@@ -27,10 +27,9 @@ const styles = StyleSheet.create({
 })
 
 const HeaderContainer = styled.View`
-width: 100%;
+padding: 5px 10px 0 10px;
 align-items: flex-end;
 justify-content: center;
-margin-top: 10px;
 `
 
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, Platform } from 'react-native';
 import logo from '../assets/background.png';
 
 import { EvilIcons } from '@expo/vector-icons';
+
 
 const HomePage = ({ navigation }) => {
 
@@ -24,6 +25,7 @@ const HomePage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     image: {
+        marginTop: 30,
         width: 350,
         height: 600
     }

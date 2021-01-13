@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, Image, Alert, ScrollView, TouchableOpacity } from 'react-native'
+import { FlatList, StyleSheet, Image, Alert, ScrollView, TouchableOpacity, Text } from 'react-native'
 import styled from 'styled-components/native';
 
 import apple from '../assets/apple.png';
@@ -17,7 +17,8 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import AppLoading from 'expo-app-loading';
+
+
 
 const Diary = ({ navigation }) => {
     const [food, setFood] = useState([
@@ -54,9 +55,12 @@ const Diary = ({ navigation }) => {
         <>
             <Main>
                 <ScrollView>
-
+                    <HeaderContainer>
+                        <HeaderText>
+                           <Text style = {{fontFamily:'AkkuratTT', fontSize: 30}}> Dagbok </Text> 
+                        </HeaderText>
                     <Header />
-
+                    </HeaderContainer>
                     <FormContainer>
 
                         <Apple>
@@ -105,27 +109,27 @@ const Diary = ({ navigation }) => {
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
                         <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#BD614E" />
-                        <Text>Dagbok</Text>
+                        <FooterText>Dagbok</FooterText>
                     </TouchableOpacity>
                 </Icon>
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
                         <FontAwesome5 name="readme" size={40} color="#ABA97B" />
-                        <Text>Utforska</Text>
+                        <FooterText>Utforska</FooterText>
                     </TouchableOpacity>
                 </Icon>
 
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Statistics')}>
                         <FontAwesome name="bar-chart" size={40} color="#ABA97B" />
-                        <Text>Statestik</Text>
+                        <FooterText>Statestik</FooterText>
                     </TouchableOpacity>
                 </Icon>
 
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                         <FontAwesome name="child" size={40} color="#ABA97B" onPress={() => navigation.navigate('Profile')} />
-                        <Text>Profil</Text>
+                        <FooterText>Profil</FooterText>
                     </TouchableOpacity>
                 </Icon>
             </FooterContainer>
@@ -164,6 +168,18 @@ const Main = styled.View`
 background-color: #BD614E;
 flex: 1;
 align-items: center;
+`
+const HeaderContainer = styled.View`
+margin-top: 40px;
+justify-content: space-between;
+flex-direction: row;
+`
+const HeaderText = styled.Text`
+padding: 10px 0 0 40px;
+color: white;
+font-size: 35px;
+align-items: center;
+
 `
 
 
@@ -239,7 +255,7 @@ flex-direction:row;
 align-items: center;
 justify-content: space-evenly;
 `
-const Text = styled.Text`
+const FooterText = styled.Text`
 font-size: 15px;
 `
 

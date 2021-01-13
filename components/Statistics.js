@@ -13,7 +13,12 @@ const Statistics = ({ navigation }) => {
     return (
         <>
             <Main>
-               <Header />
+                <HeaderContainer>
+                    <HeaderText>
+                        Statestik
+                        </HeaderText>
+                    <Header />
+                </HeaderContainer>
             </Main>
             <FooterContainer>
                 <Icon>
@@ -51,6 +56,17 @@ const Statistics = ({ navigation }) => {
 const Main = styled.View`
 flex: 1;
 background-color:#C497A4;
+`
+const HeaderContainer = styled.View`
+margin-top: 40px;
+justify-content: space-between;
+flex-direction: row;
+`
+const HeaderText = styled.Text`
+padding: 10px 0 0 40px;
+color: white;
+font-size: 35px;
+align-items: center;
 `
 
 const FooterContainer = styled.View`
