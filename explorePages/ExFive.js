@@ -6,7 +6,7 @@ import { TouchableOpacity, StyleSheet, Image, View, Text } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Photo5 from '../assets/baby5.jpg'
+import Photo5 from '../assets/baby5.png'
 
 const ExFive = ({ navigation }) => {
 

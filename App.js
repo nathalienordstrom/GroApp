@@ -7,19 +7,19 @@ import Profile from './components/Profile';
 import Statistics from './components/Statistics';
 import HomePage from './components/HomePage';
 
-import ExOne from './components/ExOne';
-import ExTwo from './components/ExTwo';
-import ExThree from './components/ExThree';
-import ExFour from './components/ExFour';
-import ExFive from './components/ExFive';
-import ExSix from './components/ExSix';
-import ExSeven from './components/ExSeven';
-import ExEight from './components/ExEight';
-import ExNine from './components/ExNine';
-import ExTen from './components/ExTen';
-import ExEleven from './components/ExEleven';
-import ExTwelve from './components/ExTwelve';
-import ExThirteen from './components/ExThirteen';
+import ExOne from './explorePages/ExOne';
+import ExTwo from './explorePages/ExTwo';
+import ExThree from './explorePages/ExThree';
+import ExFour from './explorePages/ExFour';
+import ExFive from './explorePages/ExFive';
+import ExSix from './explorePages/ExSix';
+import ExSeven from './explorePages/ExSeven';
+import ExEight from './explorePages/ExEight';
+import ExNine from './explorePages/ExNine';
+import ExTen from './explorePages/ExTen';
+import ExEleven from './explorePages/ExEleven';
+import ExTwelve from './explorePages/ExTwelve';
+import ExThirteen from './explorePages/ExThirteen';
 
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -35,22 +35,16 @@ const App = () => {
     <NavigationContainer>
 
       <Stack.Navigator initialRouteName="HomeActivity"
-        screenOptions={{ headerShown: false }} initialRouteName="HomePage">
-
-        <Stack.Screen
-          name="HomePage"
-          component={HomePage} />
+        screenOptions={{ headerShown: false }} initialRouteName="Home">
 
         <Stack.Screen
           name="Profile"
           component={Profile}
-          options={{
-            title: 'Profil',
-            headerTintColor: '#fff',
-            headerStyle: {
-              backgroundColor: '#CE7937',
-            },
-          }} />
+           />
+           
+ <Stack.Screen
+          name="HomePage"
+          component={HomePage} />
 
         <Stack.Screen
           name="Explore"

@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, Image, StyleSheet, FlatList } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet, Linking } from 'react-native';
 
-import Header from '../components/Header'
+
+import Header from '../components/Header';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
-import Morot from '../assets/morot.png'
+import Morot from '../assets/morot.png';
+import HackadMorot from '../assets/hackadmorot.png';
+import MorotBlom from '../assets/morotblom.png';
 
-const Profile = ({ navigation, props }) => {
+const Profile = ({ navigation }) => {
 
     return (
         <>
@@ -19,20 +23,48 @@ const Profile = ({ navigation, props }) => {
                     <HeaderText>
                         Profil
                         </HeaderText>
-                   
-                        <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
-                            <Header />
-                        </TouchableOpacity>
-                </HeaderContainer>
-                
-                <ProfilBox>
-                            <Image source={Morot} style={styles.morot} />
-                        <AddName>
-                        
- 
-                        </AddName>
-                        </ProfilBox>
 
+                    <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                        <Header />
+                    </TouchableOpacity>
+                </HeaderContainer>
+
+                <ProfilBox>
+                    <Image source={Morot} style={styles.morot} />
+                    <ProfilName> Edith</ProfilName>
+                    <ProfilPhoto>
+                    <FontAwesome name="photo" size={100} color="white" />
+                    </ProfilPhoto>
+                    <AddName>
+
+
+                    </AddName>
+                </ProfilBox>
+
+                <ContentBox>
+                    <ImageBoxTwo>
+                        <Image source={MorotBlom} style={styles.morotBlom} />
+                    </ImageBoxTwo>
+                    <ImageBoxOne>
+                        <Image source={HackadMorot} style={styles.hackadMorot} />
+                    </ImageBoxOne>
+                    <Box>
+                        <AntDesign name="bells" size={30} color="white" />
+                        <TextBox>Notifieringar </TextBox>
+                    </Box>
+                    <Box>
+                        <MaterialCommunityIcons name="web" size={30} color="white" />
+                        <TextBox>Vår hemsida </TextBox>
+
+                    </Box>
+                    <Box>
+                            <AntDesign name="mail" size={30} color="white" />                  
+                        <TouchableOpacity onPress={() => Linking.openURL('mailto:gro.by.neo@gmail.com?subject=SendMail&body=Description',)}>
+                            <TextBox>Kontakta support</TextBox>
+                        </TouchableOpacity>
+                    </Box>
+
+                </ContentBox>
 
 
             </Main>
@@ -70,19 +102,38 @@ const Profile = ({ navigation, props }) => {
 
 const styles = StyleSheet.create({
     morot: {
-        height: 100,
-        width: 50,
+        height: 170,
+        width: 100,
         marginLeft: 10,
         shadowColor: '#202020',
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 2,
     },
+    hackadMorot: {
+        height: 70,
+        width: 230,
+        marginLeft: 10,
+        shadowColor: '#202020',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
+    },
+    morotBlom: {
+        height: 130,
+        width: 130,
+        marginLeft: 50,
+        marginTop: 20,
+        shadowColor: '#202020',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 2,
+        marginBottom: 20,
+    }
 
 })
 
 const Main = styled.View`
 flex: 1;
 background-color:#CE7937;
+flex-direction: column;
 `
 const AddName = styled.Text`
 font-size: 20px; 
@@ -101,6 +152,38 @@ align-items: center;
 `
 const ProfilBox = styled.View`
 flex-direction:row;
+`
+const ProfilName = styled.Text`
+font-size: 50px;
+color: white;
+padding-right: 10px;
+padding-top: 40px;
+`
+const ProfilPhoto = styled.View`
+padding-left: 10px;
+padding-top: 30px;
+`
+const ContentBox = styled.View`
+padding: 0 0 30px 20px;
+flex:1;
+justify-content: flex-end;
+`
+const ImageBoxOne = styled.View`
+justify-content: flex-end;
+`
+const ImageBoxTwo = styled.View`
+flex:1;
+align-items: flex-end;
+justify-content: flex-end;
+`
+const Box = styled.View`
+flex-direction: row;
+margin:10px;
+`
+const TextBox = styled.Text`
+color: white;
+font-size: 30px;
+padding-left: 10px;
 `
 
 const FooterContainer = styled.View`

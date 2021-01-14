@@ -13,6 +13,7 @@ const DiaryAdd = ({ submitHandler }) => {
         <Main>
             <InputBox>
                 <Input
+                    clearButtonMode="always"
                     placeholderTextColor="white"
                     placeholder='...'
                     onChangeText={(val) => changeHandler(val)}
@@ -22,7 +23,7 @@ const DiaryAdd = ({ submitHandler }) => {
                 <ButtonBox>
 
                     <ButtonText><Entypo name="heart-outlined" size={30} color="white" /></ButtonText>
-                    
+
                 </ButtonBox>
             </TouchableOpacity>
         </Main>
