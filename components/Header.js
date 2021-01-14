@@ -7,9 +7,7 @@ import headerImage from '../assets/logggo.png';
 const Header = () => {
     return (
         <HeaderContainer>
-
-            <Image source={headerImage} style={styles.image} />
-
+                <Image source={headerImage} style={styles.image} />
         </HeaderContainer>
 
     )

@@ -57,9 +57,16 @@ const Diary = ({ navigation }) => {
                 <ScrollView>
                     <HeaderContainer>
                         <HeaderText>
-                           <Text style = {{fontFamily:'AkkuratTT', fontSize: 30}}> Dagbok </Text> 
+                            <Text style={{ fontFamily: 'AkkuratTT', fontSize: 30 }}> Dagbok </Text>
                         </HeaderText>
-                    <Header />
+
+
+                        <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                            <Header />
+                        </TouchableOpacity>
+
+
+
                     </HeaderContainer>
                     <FormContainer>
 
@@ -128,7 +135,7 @@ const Diary = ({ navigation }) => {
 
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                        <FontAwesome name="child" size={40} color="#ABA97B" onPress={() => navigation.navigate('Profile')} />
+                        <FontAwesome name="child" size={40} color="#ABA97B" />
                         <FooterText>Profil</FooterText>
                     </TouchableOpacity>
                 </Icon>

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, Image, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import logo from '../assets/background.png';
 
 import { EvilIcons } from '@expo/vector-icons';
 
-
 const HomePage = ({ navigation }) => {
+
 
     return (
         <Container>
@@ -14,9 +14,11 @@ const HomePage = ({ navigation }) => {
                 <Image source={logo} style={styles.image} />
             </BackgroundImage>
             <Icon>
+
                 <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
                     <EvilIcons name="arrow-right" size={90} color="#ABA97B"  />
                 </TouchableOpacity>
+
             </Icon>
         </Container >
     )
@@ -45,6 +47,21 @@ margin-top: 0px;
 `
 const Icon = styled.View`
 align-items:center;
+`
+
+const Input = styled.TextInput`
+font-size: 20px;
+color: black;
+`
+const InputBox = styled.View`
+height: 60px;
+padding:15px;
+margin-top:10px;
+background-color: white;
+border-radius:10px;
+width: 200px;
+margin-bottom: 10px;
+box-shadow: 0px 0px 8px #6F392E;
 `
 
 export default HomePage;

@@ -17,7 +17,10 @@ const Statistics = ({ navigation }) => {
                     <HeaderText>
                         Statestik
                         </HeaderText>
-                    <Header />
+                   
+                        <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                            <Header />
+                        </TouchableOpacity>
                 </HeaderContainer>
             </Main>
             <FooterContainer>

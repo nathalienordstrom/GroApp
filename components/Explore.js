@@ -13,15 +13,15 @@ import Photo1 from '../assets/baby1.jpg'
 import Photo2 from '../assets/baby2.jpg'
 import Photo3 from '../assets/baby3.jpg'
 import Photo4 from '../assets/baby4.jpg'
-import Photo5 from '../assets/baby5.png'
+import Photo5 from '../assets/baby5.jpg'
 import Photo6 from '../assets/baby6.jpg'
 import Photo7 from '../assets/baby7.jpg'
 import Photo8 from '../assets/baby8.jpg'
-import Photo9 from '../assets/baby9.jpg'
-
-const PhotoOne = 'https://www.babycentre.co.uk/ims/2019/09/iStock-466485259_wide.jpg.pagespeed.ce.di6DcclGzG.jpg'
-const PhotosTwo = 'https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/foodnavigator-usa.com/news/r-d/study-addressing-the-market-void-in-baby-food-that-actually-tastes-like-vegetables/10960764-1-eng-GB/Study-Addressing-the-market-void-in-baby-food-that-actually-tastes-like-vegetables_wrbm_large.jpg'
-const PhotosThree = 'https://www.ucl.ac.uk/news/sites/news/files/styles/large_image/public/toddlereating.jpg?itok=CZeSq4-8'
+import Photo9 from '../assets/baby9.png'
+import Photo10 from '../assets/baby10.png'
+import Photo11 from '../assets/baby11.jpg'
+import Photo12 from '../assets/baby12.jpg'
+import Photo13 from '../assets/baby13.jpg'
 
 import Pea1 from '../assets/pea1.png'
 import Pea2 from '../assets/pea2.png'
@@ -39,7 +39,10 @@ const Explore = ({ navigation }) => {
                         <HeaderText>
                             Utforska
                         </HeaderText>
-                        <Header />
+                        
+                        <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                            <Header />
+                        </TouchableOpacity>
                     </HeaderContainer>
 
                     <Container>
@@ -51,8 +54,8 @@ const Explore = ({ navigation }) => {
 
                                 <View style={styles.overlayView}>
                                     <View style={styles.overlay}>
-                                        <TouchableOpacity onPress={() => navigation.navigate('ExploreOne')}>
-                                            <Image source={Photo2} style={styles.photo} />
+                                        <TouchableOpacity onPress={() => navigation.navigate('ExOne')}>
+                                            <Image source={Photo1} style={styles.photo} />
                                         </TouchableOpacity>
                                         <Text style={styles.overlayText}>Svårt att sitta själv?</Text>
 
@@ -61,22 +64,24 @@ const Explore = ({ navigation }) => {
 
                                     <View style={styles.overlayView}>
                                         <View style={styles.overlay}>
-                                            <TouchableOpacity onPress={() => navigation.navigate('ExploreTwo')}>
-                                                <Image source={Photo4} style={styles.photo} />
+                                            <TouchableOpacity onPress={() => navigation.navigate('ExTwo')}>
+                                                <Image source={Photo2} style={styles.photo} />
                                             </TouchableOpacity>
                                             <Text style={styles.overlayText}>Hur börjar man?</Text>
                                         </View>
 
                                         <View style={styles.overlay}>
+                                        <TouchableOpacity onPress={() => navigation.navigate('ExThree')}>
                                             <Image source={Photo3} style={styles.photo} />
-
+                                        </TouchableOpacity>
                                             <Text style={styles.overlayText}>Tungmotorik</Text>
                                         </View>
 
                                         <View style={styles.overlay}>
-                                            <Image source={Photo5} style={styles.photo} />
-
-                                            <Text style={styles.overlayText}> Hur ska man börja?  </Text>
+                                        <TouchableOpacity onPress={() => navigation.navigate('ExFour')}>
+                                            <Image source={Photo4} style={styles.photo} />
+                                        </TouchableOpacity>
+                                            <Text style={styles.overlayText}> Smakprover </Text>
                                         </View>
 
 
@@ -97,22 +102,30 @@ const Explore = ({ navigation }) => {
 
                                 <View style={styles.overlayView}>
                                     <View style={styles.overlay}>
-                                        <Image source={PhotosThree} style={styles.photo} />
+                                    <TouchableOpacity onPress={() => navigation.navigate('ExFive')}>
+                                        <Image source={Photo5} style={styles.photo} />
+                                        </TouchableOpacity>
                                         <Text style={styles.overlayText}> Ser och lär  </Text>
                                     </View>
 
                                     <View style={styles.overlay}>
-                                        <Image source={PhotosTwo} style={styles.photo} />
+                                    <TouchableOpacity onPress={() => navigation.navigate('ExSix')}>
+                                        <Image source={Photo6} style={styles.photo} />
+                                        </TouchableOpacity>
                                         <Text style={styles.overlayText}> Variation </Text>
                                     </View>
 
                                     <View style={styles.overlay}>
-                                        <Image source={PhotoOne} style={styles.photo} />
+                                    <TouchableOpacity onPress={() => navigation.navigate('ExSeven')}>
+                                        <Image source={Photo7} style={styles.photo} />
+                                        </TouchableOpacity>
                                         <Text style={styles.overlayText}> Nytt sammanhang </Text>
                                     </View>
 
                                     <View style={styles.overlay}>
-                                        <Image source={Photo9} style={styles.photo} />
+                                    <TouchableOpacity onPress={() => navigation.navigate('ExEight')}>
+                                        <Image source={Photo8} style={styles.photo} />
+                                        </TouchableOpacity>
                                         <Text style={styles.overlayText}> Det ska kladda </Text>
                                     </View>
 
@@ -126,28 +139,31 @@ const Explore = ({ navigation }) => {
 
                         <Boxes>
                             <BoxText>
-                                Gluten
+                                Gluten / Allergier
                 </BoxText>
                             <ScrollView horizontal={true}>
                                 <View style={styles.overlayView}>
                                     <View style={styles.overlay}>
-                                        <Image source={Photo7} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
+                                    <TouchableOpacity onPress={() => navigation.navigate('ExNine')}>
+                                        <Image source={Photo9} style={styles.photo} />
+                                        </TouchableOpacity>
+                                        <Text style={styles.overlayText}> Att tänka på </Text>
                                     </View>
 
 
                                     <View style={styles.overlayView}>
                                         <View style={styles.overlay}>
-                                            <Image source={Photo2} style={styles.photo} />
-
-                                            <Text style={styles.overlayText}> Hur ska man börja? </Text>
+                                        <TouchableOpacity onPress={() => navigation.navigate('ExTen')}>
+                                            <Image source={Photo10} style={styles.photo} />
+                                            </TouchableOpacity>
+                                            <Text style={styles.overlayText}> Celiaki/glutenintolerans</Text>
                                         </View>
 
                                         <View style={styles.overlay}>
-                                            <Image source={Photo7} style={styles.photo} />
-
-                                            <Text style={styles.overlayText}> Hej </Text>
+                                        <TouchableOpacity onPress={() => navigation.navigate('ExEleven')}>
+                                            <Image source={Photo11} style={styles.photo} />
+                                        </TouchableOpacity>
+                                            <Text style={styles.overlayText}> Förbygga allergier </Text>
                                         </View>
 
 
@@ -164,62 +180,27 @@ const Explore = ({ navigation }) => {
                             <ScrollView horizontal={true}>
                                 <View style={styles.overlayView}>
                                     <View style={styles.overlay}>
-                                        <Image source={Photo1} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
+                                    <TouchableOpacity onPress={() => navigation.navigate('ExTwelve')}>
+                                        <Image source={Photo12} style={styles.photo} />
+                                        </TouchableOpacity>
+                                        <Text style={styles.overlayText}>Ge inte upp </Text>
                                     </View>
 
 
                                     <View style={styles.overlayView}>
                                         <View style={styles.overlay}>
-                                            <Image source={Photo2} style={styles.photo} />
-
-                                            <Text style={styles.overlayText}> Hur ska man börja? </Text>
+                                        <TouchableOpacity onPress={() => navigation.navigate('ExThirteen')}>
+                                            <Image source={Photo13} style={styles.photo} />
+                                            </TouchableOpacity>
+                                            <Text style={styles.overlayText}>Äta, en träningssak </Text>
                                         </View>
-
-                                        <View style={styles.overlay}>
-                                            <Image source={Photo1} style={styles.photo} />
-
-                                            <Text style={styles.overlayText}> Hej </Text>
-                                        </View>
-
 
                                     </View>
                                 </View>
                             </ScrollView>
                         </Boxes>
                         <Image source={Pea4} style={styles.pea4} />
-                        <Boxes>
-                            <BoxText>
-                                Allergi
-                </BoxText>
-                            <ScrollView horizontal={true}>
-                                <View style={styles.overlayView}>
-                                    <View style={styles.overlay}>
-                                        <Image source={Photo1} style={styles.photo} />
-
-                                        <Text style={styles.overlayText}> Svårt att sitta själv?  </Text>
-                                    </View>
-
-
-                                    <View style={styles.overlayView}>
-                                        <View style={styles.overlay}>
-                                            <Image source={Photo2} style={styles.photo} />
-
-                                            <Text style={styles.overlayText}> Hur ska man börja? </Text>
-                                        </View>
-
-                                        <View style={styles.overlay}>
-                                            <Image source={Photo1} style={styles.photo} />
-
-                                            <Text style={styles.overlayText}> Hej </Text>
-                                        </View>
-
-
-                                    </View>
-                                </View>
-                            </ScrollView>
-                        </Boxes>
+                        
                     </Container>
                 </ScrollView>
             </Main>
@@ -295,7 +276,7 @@ const styles = StyleSheet.create({
     },
     photo: {
         height: 100,
-        width: 120,
+        width: 200,
         shadowColor: '#202020',
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 2,
@@ -313,7 +294,7 @@ const styles = StyleSheet.create({
         marginRight: 6,
     },
     overlayText: {
-        fontSize: 10,
+        fontSize: 15,
         fontWeight: "bold",
         color: 'white',
         paddingTop: 7,
@@ -368,3 +349,6 @@ align-items: center;
 `
 
 export default Explore
+
+
+

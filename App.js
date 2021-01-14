@@ -3,11 +3,24 @@ import { useState } from 'react';
 
 import Diary from './components/Diary';
 import Explore from './components/Explore';
-import ExploreOne from './components/ExploreOne';
-import ExploreTwo from './components/ExploreTwo';
 import Profile from './components/Profile';
 import Statistics from './components/Statistics';
 import HomePage from './components/HomePage';
+
+import ExOne from './components/ExOne';
+import ExTwo from './components/ExTwo';
+import ExThree from './components/ExThree';
+import ExFour from './components/ExFour';
+import ExFive from './components/ExFive';
+import ExSix from './components/ExSix';
+import ExSeven from './components/ExSeven';
+import ExEight from './components/ExEight';
+import ExNine from './components/ExNine';
+import ExTen from './components/ExTen';
+import ExEleven from './components/ExEleven';
+import ExTwelve from './components/ExTwelve';
+import ExThirteen from './components/ExThirteen';
+
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -22,27 +35,81 @@ const App = () => {
     <NavigationContainer>
 
       <Stack.Navigator initialRouteName="HomeActivity"
-        screenOptions={{ headerShown: false }} initialRouteName="Home">
+        screenOptions={{ headerShown: false }} initialRouteName="HomePage">
 
-<Stack.Screen
+        <Stack.Screen
+          name="HomePage"
+          component={HomePage} />
+
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            title: 'Profil',
+            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: '#CE7937',
+            },
+          }} />
+
+        <Stack.Screen
           name="Explore"
           component={Explore}
         />
 
 
         <Stack.Screen
-          name="ExploreOne"
-          component={ExploreOne}
+          name="ExOne"
+          component={ExOne}
+        /><Stack.Screen
+          name="ExTwo"
+          component={ExTwo}
+        /><Stack.Screen
+          name="ExThree"
+          component={ExThree}
+        /><Stack.Screen
+          name="ExFour"
+          component={ExFour}
+        /><Stack.Screen
+          name="ExFive"
+          component={ExFive}
         />
         <Stack.Screen
-          name="ExploreTwo"
-          component={ExploreTwo}
+          name="ExSix"
+          component={ExSix}
+        />
+        <Stack.Screen
+          name="ExSeven"
+          component={ExSeven}
         />
 
         <Stack.Screen
-          name="HomePage"
-          component={HomePage} />
-          
+          name="ExEight"
+          component={ExEight}
+        />
+        <Stack.Screen
+          name="ExNine"
+          component={ExNine}
+        />
+        <Stack.Screen
+          name="ExTen"
+          component={ExTen}
+        />
+        <Stack.Screen
+          name="ExEleven"
+          component={ExEleven}
+        />
+        <Stack.Screen
+          name="ExTwelve"
+          component={ExTwelve}
+        />
+        <Stack.Screen
+          name="ExThirteen"
+          component={ExThirteen}
+        />
+
+
+
         <Stack.Screen
           name='Diary'
           component={Diary}
@@ -67,16 +134,7 @@ const App = () => {
             },
           }} />
 
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            title: 'Profil',
-            headerTintColor: '#fff',
-            headerStyle: {
-              backgroundColor: '#CE7937',
-            },
-          }} />
+
       </Stack.Navigator>
     </NavigationContainer>
 
