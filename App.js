@@ -38,13 +38,13 @@ const App = () => {
         screenOptions={{ headerShown: false }} initialRouteName="Home">
 
         <Stack.Screen
-          name="Profile"
-          component={Profile}
-           />
-           
- <Stack.Screen
           name="HomePage"
           component={HomePage} />
+
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+        />
 
         <Stack.Screen
           name="Explore"

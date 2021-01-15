@@ -45,7 +45,7 @@ const InputBox = styled.View`
 height: 60px;
 padding:15px;
 margin-top:10px;
-border: dotted white 3px;
+border: dotted white 2px;
 border-radius:10px;
 width: 200px;
 margin-bottom: 10px;

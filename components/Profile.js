@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, Image, StyleSheet, Linking } from 'react-native';
-
+import { TouchableOpacity, Image, StyleSheet, Linking, FlatList } from 'react-native';
 
 import Header from '../components/Header';
 
@@ -14,7 +13,23 @@ import Morot from '../assets/morot.png';
 import HackadMorot from '../assets/hackadmorot.png';
 import MorotBlom from '../assets/morotblom.png';
 
+import Added from '../components/Added'
+
+
 const Profile = ({ navigation }) => {
+    const [food, setFood] = useState([
+        // { text: 'Broccoli', key: '1' },
+        // { text: 'Morot', key: '2' },
+        // { text: 'Ärtor', key: '3' },
+
+    ])
+
+    const pressHandler = (key) => {
+        setFood((prevFood) => {
+            return prevFood.filter(food => food.key != key);
+        })
+    }
+
 
     return (
         <>
@@ -31,14 +46,21 @@ const Profile = ({ navigation }) => {
 
                 <ProfilBox>
                     <Image source={Morot} style={styles.morot} />
-                    <ProfilName> Edith</ProfilName>
-                    <ProfilPhoto>
-                    <FontAwesome name="photo" size={100} color="white" />
-                    </ProfilPhoto>
-                    <AddName>
+                    <ProfilName>
 
+                    </ProfilName>
+                    <ListContainer>
+                        <List>
 
-                    </AddName>
+                            <FlatList
+                                data={food}
+                                renderItem={({ item }) => (
+                                    <Added item={item} pressHandler={pressHandler} />
+                                )}
+                            />
+                        </List>
+                    </ListContainer>
+                   
                 </ProfilBox>
 
                 <ContentBox>
@@ -58,7 +80,7 @@ const Profile = ({ navigation }) => {
 
                     </Box>
                     <Box>
-                            <AntDesign name="mail" size={30} color="white" />                  
+                        <AntDesign name="mail" size={30} color="white" />
                         <TouchableOpacity onPress={() => Linking.openURL('mailto:gro.by.neo@gmail.com?subject=SendMail&body=Description',)}>
                             <TextBox>Kontakta support</TextBox>
                         </TouchableOpacity>
@@ -152,16 +174,27 @@ align-items: center;
 `
 const ProfilBox = styled.View`
 flex-direction:row;
+
+
 `
 const ProfilName = styled.Text`
 font-size: 50px;
 color: white;
 padding-right: 10px;
 padding-top: 40px;
+
+flex:1;
 `
-const ProfilPhoto = styled.View`
-padding-left: 10px;
-padding-top: 30px;
+const ListContainer = styled.View`
+width: 100%;
+`
+const List = styled.View`
+border-radius: 20px;
+margin-top: 40px;
+background-color: #CE7937;
+padding: 15px 0 15px 10px;
+width: 200px;
+box-shadow: 0px 0px 8px #6F392E;
 `
 const ContentBox = styled.View`
 padding: 0 0 30px 20px;

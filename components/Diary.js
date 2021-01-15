@@ -18,23 +18,15 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-
+import CalendarStrip from 'react-native-calendar-strip';
 
 const Diary = ({ navigation }) => {
-    const [food, setFood] = useState([
-        // { text: 'Broccoli', key: '1' },
-        // { text: 'Morot', key: '2' },
-        // { text: 'Ärtor', key: '3' },
-
-    ])
-
+    const [food, setFood] = useState([])
     const pressHandler = (key) => {
         setFood((prevFood) => {
             return prevFood.filter(food => food.key != key);
         })
     }
-
-
     const submitHandler = (text) => {
 
         if (text.length > 2) {
@@ -50,24 +42,30 @@ const Diary = ({ navigation }) => {
             ]);
         }
     }
-
     return (
         <>
             <Main>
                 <ScrollView>
+
                     <HeaderContainer>
                         <HeaderText>
                             <Text style={{ fontFamily: 'AkkuratTT', fontSize: 30 }}> Dagbok </Text>
                         </HeaderText>
-
-
                         <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
                             <Header />
                         </TouchableOpacity>
-
-
-
                     </HeaderContainer>
+
+                    <CalenderContainer>
+                        <CalendarStrip
+                            scrollable
+                            style={{ height: 80, paddingTop: 20, paddingBottom: 10 }}
+                            calendarColor={'white'}
+                            calendarHeaderStyle={{ color: '#BD614E' }}
+                            dateNumberStyle={{ color: '#BD614E' }}
+                            dateNameStyle={{ color: 'black' }}
+                            iconContainer={{ flex: 0.1 }} />
+                    </CalenderContainer>
                     <FormContainer>
 
                         <Apple>
@@ -187,6 +185,9 @@ color: white;
 font-size: 35px;
 align-items: center;
 
+`
+const CalenderContainer = styled.View`
+flex:1;
 `
 
 
