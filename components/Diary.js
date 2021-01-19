@@ -18,7 +18,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-import CalendarStrip from 'react-native-calendar-strip';
+// import CalendarStrip from 'react-native-calendar-strip';
 
 const Diary = ({ navigation }) => {
     const [food, setFood] = useState([])
@@ -49,14 +49,14 @@ const Diary = ({ navigation }) => {
 
                     <HeaderContainer>
                         <HeaderText>
-                            <Text style={{ fontFamily: 'AkkuratTT', fontSize: 30 }}> Dagbok </Text>
+                            <Text style={{ fontSize: 30 }}> Dagbok </Text>
                         </HeaderText>
                         <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
                             <Header />
                         </TouchableOpacity>
                     </HeaderContainer>
 
-                    <CalenderContainer>
+                    {/* <CalenderContainer>
                         <CalendarStrip
                             scrollable
                             style={{ height: 80, paddingTop: 20, paddingBottom: 10 }}
@@ -65,7 +65,7 @@ const Diary = ({ navigation }) => {
                             dateNumberStyle={{ color: '#BD614E' }}
                             dateNameStyle={{ color: 'black' }}
                             iconContainer={{ flex: 0.1 }} />
-                    </CalenderContainer>
+                    </CalenderContainer> */}
                     <FormContainer>
 
                         <Apple>
