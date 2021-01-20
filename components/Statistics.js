@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { withTheme } from 'styled-components/native';
-import { TouchableOpacity, StyleSheet, Image, View, Text } from 'react-native';
+import styled from 'styled-components/native';
+import { TouchableOpacity, StyleSheet, View, Text } from 'react-native';
+import { Transition, Transitioning } from 'react-native-reanimated';
 
 import data from '../components/data';
 
@@ -12,8 +13,17 @@ import Header from '../components/Header'
 import { sub } from 'react-native-reanimated';
 import { ScrollView } from 'react-native-gesture-handler';
 
+const transistion = (
+    <Transition.Together>
+        <Transition.In type="fade" duration={200} />
+        <Transition.Change />
+        <Transition.Out type="fade" duration={200} />
+    </Transition.Together> 
+)
+
 const Statistics = ({ navigation }) => {
     const [currentIndex, setCurrentIndex] = React.useState(null);
+    const ref = React.useRef()
     return (
         <>
             <Main>
@@ -26,12 +36,16 @@ const Statistics = ({ navigation }) => {
                             <Header />
                         </TouchableOpacity>
                     </HeaderContainer>
-                    <View style={styles.container}>
+                    <Transitioning.View 
+                    ref={ref}
+                    transition={transistion}
+                    style={styles.container}>
 
                         {data.map(({ bg, color, name, subCategories, rating }, index) => {
                             return <TouchableOpacity
                                 key={name}
                                 onPress={() => {
+                                    ref.current.animateNextTransition();
                                     setCurrentIndex(index === currentIndex ? null : index)
                                 }}
                                 style={styles.cardContainer}
@@ -50,7 +64,7 @@ const Statistics = ({ navigation }) => {
                             </TouchableOpacity>
                         })}
 
-                    </View>
+                    </Transitioning.View>
                 </ScrollView>
             </Main>
             <FooterContainer>
@@ -109,7 +123,6 @@ const styles = StyleSheet.create({
     rating:{
         fontSize: 20,
         color: 'white',
-        marginLeft: 20,
         fontWeight: '500',
         letterSpacing: 1,
     },
@@ -117,12 +130,12 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
+        padding: 20,
     },
     body: {
         fontSize: 30,
         paddingTop: 25,
-        textAlign: 'center',
+
     
     }
 })

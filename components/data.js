@@ -20,9 +20,9 @@ export default [
         ]
     },
     {
-        bg: '#CE7937',
-        color: '#BDB995',
-         name: 'Morot',
+        bg: '#C497A4',
+        color: '#BD614E',
+        name: 'Kålrot',
         rating: '2/5 ⭐️⭐',
         subCategories: [
             '⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️'
@@ -37,10 +37,11 @@ export default [
             '⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️'
         ]
     },
+   
     {
-        bg: '#C497A4',
-        color: '#BD614E',
-        name: 'Kålrot',
+        bg: '#CE7937',
+        color: '#BDB995',
+         name: 'Morot',
         rating: '2/5 ⭐️⭐',
         subCategories: [
             '⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️'
@@ -52,7 +53,7 @@ export default [
         name: 'Äpple',
         rating: '4/5 ⭐️⭐️⭐️⭐️',
         subCategories: [
-            '🟢 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️'
+            '⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️'
         ]
     },
 
