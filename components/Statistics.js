@@ -1,53 +1,83 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { TouchableOpacity, StyleSheet, Image } from 'react-native';
+import styled, { withTheme } from 'styled-components/native';
+import { TouchableOpacity, StyleSheet, Image, View, Text } from 'react-native';
 
+import data from '../components/data';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
 import Header from '../components/Header'
+import { sub } from 'react-native-reanimated';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Statistics = ({ navigation }) => {
+    const [currentIndex, setCurrentIndex] = React.useState(null);
     return (
         <>
             <Main>
-                <HeaderContainer>
-                    <HeaderText>
-                        Statestik
+                <ScrollView>
+                    <HeaderContainer>
+                        <HeaderText>
+                            Statestik
                         </HeaderText>
-                   
                         <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
                             <Header />
                         </TouchableOpacity>
-                </HeaderContainer>
+                    </HeaderContainer>
+                    <View style={styles.container}>
+
+                        {data.map(({ bg, color, name, subCategories, rating }, index) => {
+                            return <TouchableOpacity
+                                key={name}
+                                onPress={() => {
+                                    setCurrentIndex(index === currentIndex ? null : index)
+                                }}
+                                style={styles.cardContainer}
+                                activeOpacity={0.6}
+                            >
+                                <View style={[styles.card, { backgroundColor: bg }]}>
+                                    <Text style={[styles.heading, { color }]}>{name}<Text style={styles.rating}>{rating}</Text></Text>
+                                    {index === currentIndex && (
+                                        <View style={styles.subCategoriesList}>
+                                        {subCategories.map(subCategory => (
+                                            <Text key={subCategory} style={[styles.body]}> {subCategory}</Text>
+                                        ))}
+                                    </View>
+                                    )}
+                                </View>
+                            </TouchableOpacity>
+                        })}
+
+                    </View>
+                </ScrollView>
             </Main>
             <FooterContainer>
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
                         <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#ABA97B" />
-                        <Text>Dagbok</Text>
+                        <IconText>Dagbok</IconText>
                     </TouchableOpacity>
                 </Icon>
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
                         <FontAwesome5 name="readme" size={40} color="#ABA97B" />
-                        <Text>Utforska</Text>
+                        <IconText>Utforska</IconText>
                     </TouchableOpacity>
                 </Icon>
 
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Statistics')}>
                         <FontAwesome name="bar-chart" size={40} color="#C497A4" />
-                        <Text>Statestik</Text>
+                        <IconText>Statestik</IconText>
                     </TouchableOpacity>
                 </Icon>
 
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                         <FontAwesome name="child" size={40} color="#ABA97B" onPress={() => navigation.navigate('Profile')} />
-                        <Text>Profil</Text>
+                        <IconText>Profil</IconText>
                     </TouchableOpacity>
                 </Icon>
             </FooterContainer>
@@ -55,6 +85,47 @@ const Statistics = ({ navigation }) => {
     )
 }
 
+const styles = StyleSheet.create({
+    container: {
+        flex:1,
+        marginTop: 50,
+        justifyContent: 'center',
+        alignItems:'center',
+    },
+    cardContainer: {
+        flexGrow: 1,
+        justifyContent: 'center',
+        shadowColor: '#202020',
+        shadowOffset: { width: 1, height: 2 },
+        shadowRadius: 9,
+        width: 400,
+    },
+    heading: {
+        fontSize: 28,
+        fontWeight: '900',
+        textTransform: 'uppercase',
+        letterSpacing: -2,
+    },
+    rating:{
+        fontSize: 20,
+        color: 'white',
+        marginLeft: 20,
+        fontWeight: '500',
+        letterSpacing: 1,
+    },
+    card: {
+        flexGrow: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+    },
+    body: {
+        fontSize: 30,
+        paddingTop: 25,
+        textAlign: 'center',
+    
+    }
+})
 
 const Main = styled.View`
 flex: 1;
@@ -71,7 +142,6 @@ color: white;
 font-size: 35px;
 align-items: center;
 `
-
 const FooterContainer = styled.View`
 margin-top: 0px;
 height: 100px;
@@ -80,7 +150,7 @@ flex-direction:row;
 align-items: center;
 justify-content: space-evenly;
 `
-const Text = styled.Text`
+const IconText = styled.Text`
 font-size: 15px;
 `
 

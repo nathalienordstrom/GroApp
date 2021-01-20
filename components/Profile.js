@@ -17,20 +17,6 @@ import Added from '../components/Added'
 
 
 const Profile = ({ navigation }) => {
-    const [food, setFood] = useState([
-        // { text: 'Broccoli', key: '1' },
-        // { text: 'Morot', key: '2' },
-        // { text: 'Ärtor', key: '3' },
-
-    ])
-
-    const pressHandler = (key) => {
-        setFood((prevFood) => {
-            return prevFood.filter(food => food.key != key);
-        })
-    }
-
-
     return (
         <>
             <Main>
@@ -47,20 +33,8 @@ const Profile = ({ navigation }) => {
                 <ProfilBox>
                     <Image source={Morot} style={styles.morot} />
                     <ProfilName>
-
+                        EDITH
                     </ProfilName>
-                    <ListContainer>
-                        <List>
-
-                            <FlatList
-                                data={food}
-                                renderItem={({ item }) => (
-                                    <Added item={item} pressHandler={pressHandler} />
-                                )}
-                            />
-                        </List>
-                    </ListContainer>
-                   
                 </ProfilBox>
 
                 <ContentBox>
@@ -182,7 +156,7 @@ font-size: 50px;
 color: white;
 padding-right: 10px;
 padding-top: 40px;
-
+margin-left: 20px;
 flex:1;
 `
 const ListContainer = styled.View`

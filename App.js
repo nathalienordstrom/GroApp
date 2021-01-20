@@ -36,6 +36,11 @@ const App = () => {
 
       <Stack.Navigator initialRouteName="HomeActivity"
         screenOptions={{ headerShown: false }} initialRouteName="Home">
+          
+        <Stack.Screen
+          name="Statistics"
+          component={Statistics}
+        />
 
         <Stack.Screen
           name="HomePage"
@@ -115,18 +120,6 @@ const App = () => {
             },
           }}
         />
-
-
-        <Stack.Screen
-          name="Statistics"
-          component={Statistics}
-          options={{
-            title: 'Statestik',
-            headerTintColor: '#fff',
-            headerStyle: {
-              backgroundColor: '#C497A4',
-            },
-          }} />
 
 
       </Stack.Navigator>
