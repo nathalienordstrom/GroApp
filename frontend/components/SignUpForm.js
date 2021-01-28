@@ -12,7 +12,7 @@ import { FontAwesome } from '@expo/vector-icons';
 const SIGNUP_URL = "http://localhost:8080/users";
 const LOGIN_URL = "http://localhost:8080/sessions";
 
-export const LoginForm = () => {
+export const SignUpForm = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);
   const [name, setName] = useState("");
@@ -65,38 +65,32 @@ export const LoginForm = () => {
     // If user is logged out, show login form
     return (
       <Main>
-        <Icon>
-          <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
-            <Ionicons name="arrow-back-circle-outline" size={24} color="black" />
-          </TouchableOpacity>
-        </Icon>
-        <MainContainer>
         <Container>
-          <HeaderText>Logga In</HeaderText>
+          <LogIn />
           <Form>
-
+          
 
             <FormName>
-
-              <Ionicons name="person" size={24} color="black" />
-              <Input
-                required
-                value={name}
-                placeholder='namn'
-                onChange={(event) => setName(event.target.value)}
-              />
-
+             
+                <Ionicons name="person" size={24} color="black" />
+                <Input
+                  required
+                  value={name}
+                  placeholder='namn'
+                  onChange={(event) => setName(event.target.value)}
+                />
+              
             </FormName>
             <FormPassword>
-
-              <FontAwesome name="key" size={24} color="black" />
-              <Input
-                required
-                value={password}
-                placeholder='lörsenord'
-                onChange={(event) => setPassword(event.target.value)}
-              />
-
+              
+                <FontAwesome name="key" size={24} color="black" />
+                <Input
+                  required
+                  value={password}
+                  placeholder='lörsenord'
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              
             </FormPassword>
 
             <Buttons>
@@ -117,12 +111,11 @@ export const LoginForm = () => {
 
                 </View>
               </TouchableOpacity>
-
+              
             </Buttons>
 
           </Form>
         </Container>
-        </MainContainer>
       </Main>
     );
   } else {
@@ -139,7 +132,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50,
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth:1,
     marginTop: 5,
     margin: 5,
   },
@@ -150,28 +143,13 @@ const styles = StyleSheet.create({
 const Main = styled.View`
 background-color: white;
 flex:1;
-
+justify-content: center;
 `
-
-const Icon = styled.View`
-border: solid black 1px;
-`
-const MainContainer = styled.View`
-
-`
-
 
 const Container = styled.View`
 margin-left: 50px;
 margin-right: 50px;
-border: solid black 1px;
-justify-content: center;
-
 `
-const HeaderText = styled.Text`
-
-`
-
 
 const Form = styled.View`
 align-items: center;
@@ -214,4 +192,4 @@ font-size: 15px;
 
 
 
-export default LoginForm;
+export default SignUpForm;

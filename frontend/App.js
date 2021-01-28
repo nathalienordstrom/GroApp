@@ -5,6 +5,8 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { user } from "./reducers/user";
 
 import LoginForm from "./components/LoginForm";
+import SignUpForm from "./components/SignUpForm";
+
 import Diary from './components/Diary';
 import Explore from './components/Explore';
 import Profile from './components/Profile';
@@ -62,16 +64,18 @@ const App = () => {
 
         <Stack.Navigator initialRouteName="HomeActivity"
           screenOptions={{ headerShown: false }} initialRouteName="Home">
-
+<Stack.Screen
+            name="LoginForm"
+            component={LoginForm} />
           <Stack.Screen
             name="HomePage"
             component={HomePage} />
 
+          
+
           <Stack.Screen
-            name="LoginForm"
-            component={LoginForm} />
-
-
+            name="SignUpForm"
+            component={SignUpForm} />
 
           <Stack.Screen
             name="Profile"
