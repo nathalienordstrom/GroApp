@@ -42,124 +42,127 @@ const App = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-    // To sign up a user.
-    const handleSubmit = (event) => {
-      event.preventDefault();
-  
-      fetch(URL, {
-        method: "POST",
-        body: JSON.stringify({ name, password }),
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => res.json())
-        .then((json) => console.log(json))
-        .catch((err) => console.log("error:", err));
-    }
+  // To sign up a user.
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetch(URL, {
+      method: "POST",
+      body: JSON.stringify({ name, password }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log("error:", err));
+  }
 
   return (
     <Provider store={store}>
-    <NavigationContainer>
+      <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="HomeActivity"
-        screenOptions={{ headerShown: false }} initialRouteName="Home">
-        <Stack.Screen
-          name="LoginForm"
-          component={LoginForm} />
-          
-        <Stack.Screen
-          name="HomePage"
-          component={HomePage} />
+        <Stack.Navigator initialRouteName="HomeActivity"
+          screenOptions={{ headerShown: false }} initialRouteName="Home">
 
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-        />
+          <Stack.Screen
+            name="HomePage"
+            component={HomePage} />
 
-        <Stack.Screen
-          name="Explore"
-          component={Explore}
-        />
-
-
-        <Stack.Screen
-          name="ExOne"
-          component={ExOne}
-        /><Stack.Screen
-          name="ExTwo"
-          component={ExTwo}
-        /><Stack.Screen
-          name="ExThree"
-          component={ExThree}
-        /><Stack.Screen
-          name="ExFour"
-          component={ExFour}
-        /><Stack.Screen
-          name="ExFive"
-          component={ExFive}
-        />
-        <Stack.Screen
-          name="ExSix"
-          component={ExSix}
-        />
-        <Stack.Screen
-          name="ExSeven"
-          component={ExSeven}
-        />
-
-        <Stack.Screen
-          name="ExEight"
-          component={ExEight}
-        />
-        <Stack.Screen
-          name="ExNine"
-          component={ExNine}
-        />
-        <Stack.Screen
-          name="ExTen"
-          component={ExTen}
-        />
-        <Stack.Screen
-          name="ExEleven"
-          component={ExEleven}
-        />
-        <Stack.Screen
-          name="ExTwelve"
-          component={ExTwelve}
-        />
-        <Stack.Screen
-          name="ExThirteen"
-          component={ExThirteen}
-        />
+          <Stack.Screen
+            name="LoginForm"
+            component={LoginForm} />
 
 
 
-        <Stack.Screen
-          name='Diary'
-          component={Diary}
-          options={{
-            title: 'Dagbok',
-            headerTintColor: '#fff',
-            headerStyle: {
-              backgroundColor: '#BD614E',
-            },
-          }}
-        />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+          />
+
+          <Stack.Screen
+            name="Explore"
+            component={Explore}
+          />
 
 
-        <Stack.Screen
-          name="Statistics"
-          component={Statistics}
-          options={{
-            title: 'Statestik',
-            headerTintColor: '#fff',
-            headerStyle: {
-              backgroundColor: '#C497A4',
-            },
-          }} />
+          <Stack.Screen
+            name="ExOne"
+            component={ExOne}
+          /><Stack.Screen
+            name="ExTwo"
+            component={ExTwo}
+          /><Stack.Screen
+            name="ExThree"
+            component={ExThree}
+          /><Stack.Screen
+            name="ExFour"
+            component={ExFour}
+          /><Stack.Screen
+            name="ExFive"
+            component={ExFive}
+          />
+          <Stack.Screen
+            name="ExSix"
+            component={ExSix}
+          />
+          <Stack.Screen
+            name="ExSeven"
+            component={ExSeven}
+          />
+
+          <Stack.Screen
+            name="ExEight"
+            component={ExEight}
+          />
+          <Stack.Screen
+            name="ExNine"
+            component={ExNine}
+          />
+          <Stack.Screen
+            name="ExTen"
+            component={ExTen}
+          />
+          <Stack.Screen
+            name="ExEleven"
+            component={ExEleven}
+          />
+          <Stack.Screen
+            name="ExTwelve"
+            component={ExTwelve}
+          />
+          <Stack.Screen
+            name="ExThirteen"
+            component={ExThirteen}
+          />
 
 
-      </Stack.Navigator>
-    </NavigationContainer>
+
+          <Stack.Screen
+            name='Diary'
+            component={Diary}
+            options={{
+              title: 'Dagbok',
+              headerTintColor: '#fff',
+              headerStyle: {
+                backgroundColor: '#BD614E',
+              },
+            }}
+          />
+
+
+          <Stack.Screen
+            name="Statistics"
+            component={Statistics}
+            options={{
+              title: 'Statestik',
+              headerTintColor: '#fff',
+              headerStyle: {
+                backgroundColor: '#C497A4',
+              },
+            }} />
+
+
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   )
 }

@@ -3,9 +3,11 @@ import styled from 'styled-components/native';
 import { StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import logo from '../assets/background.png';
 
-import AddName from './AddName'
+import { FontAwesome } from '@expo/vector-icons';
 
 import { EvilIcons } from '@expo/vector-icons';
+
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const HomePage = ({ navigation }) => {  
     const [food, setFood] = useState([
@@ -33,19 +35,19 @@ const HomePage = ({ navigation }) => {
 
     return (
         <Container>
-            <InputContainer>
-               <AddName submitHandler={submitHandler} />
-            </InputContainer>
+            
             <BackgroundImage>
-
                 <Image source={logo} style={styles.image} />
             </BackgroundImage>
             <Icon>
-
-                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                <TouchableOpacity onPress={() => navigation.navigate('LoginForm')}>
                     <EvilIcons name="arrow-right" size={90} color="#ABA97B" />
                 </TouchableOpacity>
-
+            </Icon>
+            <Icon>
+                <TouchableOpacity onPress={() => navigation.navigate('LoginForm')}>
+                <MaterialCommunityIcons name="account-plus-outline" size={90} color="#ABA97B" />
+                </TouchableOpacity>
             </Icon>
         </Container >
     )
@@ -83,30 +85,13 @@ color: white;
 flex-direction: column;
 justify-content:flex-start;
 `
-const InputContainer = styled.View`
-margin-top: 50;
-color: red;
-align-items: center;
-`
-
 const BackgroundImage = styled.View`
-
 
 `
 const Icon = styled.View`
 align-items:center;
 `
-const ButtonBox = styled.View`
-border-radius: 10px;
-width:100px;
-padding: 0;
-align-items: center;
-font-weight:bold;
-`
-const ButtonText = styled.Text`
-color: white;
-font-weight:bold;
-`
+
 
 
 export default HomePage;
