@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, Image, StyleSheet, Linking, FlatList } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet, Linking, FlatList, Text} from 'react-native';
 
 import Header from './Header';
 
@@ -8,26 +8,36 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 import Morot from '../assets/morot.png';
 import HackadMorot from '../assets/hackadmorot.png';
 import MorotBlom from '../assets/morotblom.png';
 
-import Added from './Added'
+import Added from './Added';
+import { black } from 'react-native-paper/lib/typescript/styles/colors';
+
+const NAME_URL = "http://localhost:8080/users";
 
 
 const Profile = ({ navigation }) => {
-    const [food, setFood] = useState([
-        // { text: 'Broccoli', key: '1' },
-        // { text: 'Morot', key: '2' },
-        // { text: 'Ärtor', key: '3' },
-
-    ])
+    const [food, setFood] = useState([])
+    const [name, setName] = useState([])
 
     const pressHandler = (key) => {
         setFood((prevFood) => {
             return prevFood.filter(food => food.key != key);
         })
+
+        fetch(NAME_URL, {
+            method: "GET",
+            body: JSON.stringify({ name, password }),
+            headers: { "Content-Type": "application/json" },
+          })
+            .then((res) => res.json())
+            .then((json) => {
+                setName(json.results)
+            })
     }
 
 
@@ -38,8 +48,7 @@ const Profile = ({ navigation }) => {
                     <HeaderText>
                         Profil
                         </HeaderText>
-
-                    <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
                         <Header />
                     </TouchableOpacity>
                 </HeaderContainer>
@@ -47,8 +56,10 @@ const Profile = ({ navigation }) => {
                 <ProfilBox>
                     <Image source={Morot} style={styles.morot} />
                     <ProfilName>
-
-                    </ProfilName>
+                    {names.map((name) => (
+                        <Text style={styled.profileName} alt={name.name}>Hej</Text>
+                    ))};
+                    </ProfilName> 
                     <ListContainer>
                         <List>
 
@@ -71,8 +82,8 @@ const Profile = ({ navigation }) => {
                         <Image source={HackadMorot} style={styles.hackadMorot} />
                     </ImageBoxOne>
                     <Box>
-                        <AntDesign name="bells" size={30} color="white" />
-                        <TextBox>Notifieringar </TextBox>
+                    <Ionicons name="md-key-outline" size={35} color="white" />
+                        <TextBox>Konto  </TextBox>
                     </Box>
                     <Box>
                         <MaterialCommunityIcons name="web" size={30} color="white" />
@@ -94,27 +105,27 @@ const Profile = ({ navigation }) => {
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
                         <MaterialCommunityIcons name="fountain-pen-tip" size={40} color="#ABA97B" />
-                        <Text>Dagbok</Text>
+                        <IconText>Dagbok</IconText>
                     </TouchableOpacity>
                 </Icon>
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
                         <FontAwesome5 name="readme" size={40} color="#ABA97B" />
-                        <Text>Utforska</Text>
+                        <IconText>Utforska</IconText>
                     </TouchableOpacity>
                 </Icon>
 
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Statistics')}>
                         <FontAwesome name="bar-chart" size={40} color="#ABA97B" />
-                        <Text>Statestik</Text>
+                        <IconText>Statestik</IconText>
                     </TouchableOpacity>
                 </Icon>
 
                 <Icon>
                     <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                         <FontAwesome name="child" size={40} color="#CE7937" onPress={() => navigation.navigate('Profile')} />
-                        <Text>Profil</Text>
+                        <IconText>Profil</IconText>
                     </TouchableOpacity>
                 </Icon>
             </FooterContainer>
@@ -128,26 +139,32 @@ const styles = StyleSheet.create({
         width: 100,
         marginLeft: 10,
         shadowColor: '#202020',
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 2,
+        shadowOffset: { width: 0, height: 5 },
+        shadowRadius: 4,
+        shadowColor: 'black',
+        shadowOpacity: 21,
     },
     hackadMorot: {
         height: 70,
         width: 230,
         marginLeft: 10,
         shadowColor: '#202020',
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 2,
+        shadowOffset: { width: 0, height: 5 },
+        shadowRadius: 4,
+        shadowColor: 'black',
+        shadowOpacity: 21,
     },
     morotBlom: {
         height: 130,
-        width: 130,
-        marginLeft: 50,
-        marginTop: 20,
+        width: 125,
         shadowColor: '#202020',
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 2,
-        marginBottom: 20,
+        shadowOffset: { width: 0, height: 5 },
+        shadowRadius: 4,
+        shadowColor: 'black',
+        shadowOpacity: 21,
+    },
+    profileName : {
+        fontSize: 20,'
     }
 
 })
@@ -227,7 +244,7 @@ flex-direction:row;
 align-items: center;
 justify-content: space-evenly;
 `
-const Text = styled.Text`
+const IconText = styled.Text`
 font-size: 15px;
 `
 

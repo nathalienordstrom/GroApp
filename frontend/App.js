@@ -7,6 +7,7 @@ import { user } from "./reducers/user";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 
+
 import Diary from './components/Diary';
 import Explore from './components/Explore';
 import Profile from './components/Profile';
@@ -64,23 +65,40 @@ const App = () => {
 
         <Stack.Navigator initialRouteName="HomeActivity"
           screenOptions={{ headerShown: false }} initialRouteName="Home">
-<Stack.Screen
-            name="LoginForm"
-            component={LoginForm} />
+
+
           <Stack.Screen
             name="HomePage"
             component={HomePage} />
 
-          
-
           <Stack.Screen
-            name="SignUpForm"
-            component={SignUpForm} />
+            name='Diary'
+            component={Diary}
+          />
 
           <Stack.Screen
             name="Profile"
             component={Profile}
           />
+
+
+
+
+          <Stack.Screen
+            name="LoginForm"
+            component={LoginForm} />
+
+
+
+
+          <Stack.Screen
+            name="SignUpForm"
+            component={SignUpForm} />
+
+
+
+
+
 
           <Stack.Screen
             name="Explore"
@@ -140,17 +158,7 @@ const App = () => {
 
 
 
-          <Stack.Screen
-            name='Diary'
-            component={Diary}
-            options={{
-              title: 'Dagbok',
-              headerTintColor: '#fff',
-              headerStyle: {
-                backgroundColor: '#BD614E',
-              },
-            }}
-          />
+
 
 
           <Stack.Screen

@@ -1,18 +1,24 @@
 import React, { useState } from "react";
-import LogIn from "./LogIn";
 import { useDispatch, useSelector } from "react-redux";
 import { user } from "../reducers/user";
 import styled from 'styled-components/native';
-import { FlatList, StyleSheet, View, Alert, ScrollView, TouchableOpacity, Text } from 'react-native'
+import { FlatList, StyleSheet, View, Alert, Image, TouchableOpacity, Text } from 'react-native';
 
+import AnimatedInput from 'react-native-animated-input';
+
+import Photo from '../assets/Dokumentlayout3.jpg';
+import LogIn from './LogIn';
+import Profile from './Profile'
 
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 
-const SIGNUP_URL = "http://localhost:8080/users";
 const LOGIN_URL = "http://localhost:8080/sessions";
+const SIGNUP_URL = "http://localhost:8080/users";
 
-export const LoginForm = () => {
+export const LoginForm = ({ navigation }) => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);
   const [name, setName] = useState("");
@@ -23,7 +29,7 @@ export const LoginForm = () => {
       user.actions.setAccessToken({ accessToken: loginResponse.accessToken })
     );
     dispatch(user.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(user.actions.setStatusMessage({ statusMessage: 'Login Success' }));
+    dispatch(user.actions.setStatusMessage({ statusMessage: 'Fel namn eller lösenord' }));
 
   };
 
@@ -61,67 +67,65 @@ export const LoginForm = () => {
       .catch((err) => handleLoginFailed(err));
   };
 
+
   if (!accessToken) {
     // If user is logged out, show login form
     return (
       <Main>
+
+
         <Icon>
-          <TouchableOpacity onPress={() => navigation.navigate('Diary')}>
-            <Ionicons name="arrow-back-circle-outline" size={24} color="black" />
+          <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+            <Ionicons name="arrow-back-circle-outline" size={50} color="#D2D09D" />
           </TouchableOpacity>
         </Icon>
         <MainContainer>
-        <Container>
-          <HeaderText>Logga In</HeaderText>
-          <Form>
+          <Container>
+          <View style={styles.card}>
+            <LoginText>
+              <AppleIcon>
+                <MaterialCommunityIcons name="food-apple-outline" size={40} color="#BD614E" />
+              </AppleIcon>
+              <LoginText>Logga in</LoginText>
+            </LoginText>
+            <Form>
+              <FormInput>
+                    <Ionicons name="person" size={24} color="#BD614E" />
+                    <Input
+                      required
+                      value={name}
+                      placeholder='namn'
+                      onChange={(event) => setName(event.target.value)}
+                    />
+                  </FormInput>
+                  <FormInput>
+                    <FontAwesome name="key" size={24} color="#BD614E" />
+                    <Input
+                      value={password}
+                      required
+                      placeholder='lörsenord'
+                      onChange={(event) => setPassword(event.target.value)}
+                    />
+
+                  </FormInput>
+          
+              <Buttons>
+                <TouchableOpacity onPress={handleLogin} >
+                  <View style={styles.button}>
+
+                    <EvilIcons name="arrow-right" size={80} color="#BD614E" />
 
 
-            <FormName>
+                  </View>
+                </TouchableOpacity>
+              </Buttons>
+              <LogIn />
 
-              <Ionicons name="person" size={24} color="black" />
-              <Input
-                required
-                value={name}
-                placeholder='namn'
-                onChange={(event) => setName(event.target.value)}
-              />
-
-            </FormName>
-            <FormPassword>
-
-              <FontAwesome name="key" size={24} color="black" />
-              <Input
-                required
-                value={password}
-                placeholder='lörsenord'
-                onChange={(event) => setPassword(event.target.value)}
-              />
-
-            </FormPassword>
-
-            <Buttons>
-
-              <TouchableOpacity onPress={handleSignup}>
-                <View style={styles.button}>
-
-                  <ButtonText>Bli Medlem</ButtonText>
-
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={handleLogin}>
-                <View style={styles.button}>
-
-                  <ButtonText>Logga in
-                  </ButtonText>
-
-                </View>
-              </TouchableOpacity>
-
-            </Buttons>
-
-          </Form>
-        </Container>
+             
+            </Form>
+            </View>
+            <Image source={Photo} style={styles.image} />
+          </Container>
         </MainContainer>
       </Main>
     );
@@ -132,83 +136,92 @@ export const LoginForm = () => {
 };
 
 const styles = StyleSheet.create({
-  button: {
-    width: 120,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 50,
-    borderColor: 'black',
-    borderWidth: 1,
-    marginTop: 5,
-    margin: 5,
+  image: {
+    marginTop: 100,
+    width: 400,
+    height: 130,
+    right: 50,
   },
-
+   card: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 30,
+    shadowColor: '#c0c0c0',
+    shadowOpacity: 0.9,
+    shadowOffset: {
+      height: 2,
+      width: 2,
+    },
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  
 
 });
 
 const Main = styled.View`
 background-color: white;
 flex:1;
-
 `
 
 const Icon = styled.View`
-border: solid black 1px;
+padding-top: 50px;
+margin-left: 20px;
 `
 const MainContainer = styled.View`
-
+justify-content: center;
+flex:1;
 `
-
 
 const Container = styled.View`
 margin-left: 50px;
 margin-right: 50px;
-border: solid black 1px;
-justify-content: center;
-
-`
-const HeaderText = styled.Text`
-
 `
 
+const LoginBox = styled.View`
+flex-direction: row;
+justify-content:center;
+align-items: center;
+`
+
+const AppleIcon = styled.View`
+align-items:center;
+`
+
+const LoginText = styled.Text`
+font-size: 30px;
+color:  #D2D09D; 
+
+`
 
 const Form = styled.View`
 align-items: center;
 margin-top: 30px;
+
 `
 
 const Input = styled.TextInput`
 font-size: 20px;
 padding-left: 20px;
+
 `
 
-
-const FormName = styled.View`
+// border:#D2D09D solid 1px;
+const FormInput = styled.View`
 flex-direction:row;
-border: black solid 1px;
+box-shadow: 1px 2px 4px #c0c0c0;
+background-color: white;
 border-radius: 50px;
 padding: 10px;
 width: 100%;
 margin-bottom: 20px;
 
 `
-const FormPassword = styled.View`
-flex-direction:row;
-border: black solid 1px;
-border-radius: 50px;
-padding: 10px;
-width: 100%;
-`
+
 const Buttons = styled.View`
 flex-direction: row;
 margin-top: 20px;
 
-`
-
-const ButtonText = styled.Text`
-color: black;
-font-size: 15px;
 `
 
 

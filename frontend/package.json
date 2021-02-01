@@ -36,6 +36,7 @@
     "react-hooks-helper": "^1.6.0",
     "react-image-shadow": "^1.1.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-animated-input": "^1.0.1",
     "react-native-calendar-strip": "^2.1.4",
     "react-native-cardview": "^2.0.5",
     "react-native-css-media-query-processor": "^0.21.3",

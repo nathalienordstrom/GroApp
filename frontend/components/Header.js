@@ -1,13 +1,17 @@
 import React from 'react'
-import { Image, StyleSheet } from 'react-native'
+import { Image, StyleSheet, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native';
+
 
 import headerImage from '../assets/logggo.png';
 
-const Header = () => {
+const Header = ({ navigation }) => {
     return (
         <HeaderContainer>
-                <Image source={headerImage} style={styles.image} />
+                 <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                 <Image source={headerImage} style={styles.image} />
+                    </TouchableOpacity>
+          
         </HeaderContainer>
 
     )
@@ -19,8 +23,10 @@ const styles = StyleSheet.create({
         width: 100,
         marginRight: 20,
         shadowColor: '#202020',
-        shadowOffset: { width: 2, height: 0 },
-        shadowRadius: 1,
+        shadowOffset: { width: 0, height: 5 },
+        shadowRadius: 4,
+        shadowColor: 'black',
+        shadowOpacity: 21,
     }
 })
 

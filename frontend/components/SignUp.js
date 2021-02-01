@@ -16,32 +16,32 @@ export const SignUp = () => {
 
   const logout = () => {};
 
-  const login = () => {
-    // Include userId in the path
-    fetch(`${URL}/${userId}`, {
-      method: "GET",
-      // Include the accessToken to get the protected endpoint
-      headers: { Authorization: accessToken },
-    })
-      .then((res) => res.json())
-      // SUCCESS: Do something with the information we got back
-      .then((json) => loginSuccess(json))
-      .catch((err) => loginFailed(err)); //401
-  };
+  // const signup = () => {
+  //   // Include userId in the path
+  //   fetch(`${URL}/${userId}`, {
+  //     method: "GET",
+  //     // Include the accessToken to get the protected endpoint
+  //     headers: { Authorization: accessToken },
+  //   })
+  //     .then((res) => res.json())
+  //     // SUCCESS: Do something with the information we got back
+  //     .then((json) => loginSuccess(json))
+  //     .catch((err) => loginFailed(err)); //401
+  // };
 
   return (
     <Main>
-      <HeaderText>Bli Medlem</HeaderText>
+      
    
       <Form>
-      <FormHeader>Response :</FormHeader>
+  
       <Response>{`${statusMessage}`}</Response>
       </Form>
       {/* <h4>userId :</h4>
       <p> {`${userId}`}</p>
       <h4>accessToken :</h4>
-      <p> {`${accessToken}`}</p>
-      <input type="submit" onClick={login} value="Test Login" />
+      <p> {`${accessToken}`}</p> */}
+      {/* <input type="submit" onClick={login} value="Test Login" />
       <input type="submit" onClick={logout} value="Test Logout" /> */}
     </Main>
   );
@@ -63,11 +63,7 @@ align-items: center;
 // align-items: center;
 // border: solid 3px red;
 // `
-const HeaderText = styled.Text`
-font-size: 50px;
-color: black;
 
-`
 const Form = styled.View`
 
 `

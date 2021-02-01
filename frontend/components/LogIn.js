@@ -3,18 +3,18 @@ import { user } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
 import styled from 'styled-components/native';
 
-const URL = "http://localhost:8080/users";
+const URL = "http://localhost:8080/sessions";
 export const LogIn = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);
   const userId = useSelector((store) => store.user.login.userId);
   const statusMessage = useSelector((store) => store.user.login.statusMessage);
 
-  const loginSuccess = (loginResponse) => {};
+  const loginSuccess = (loginResponse) => { };
 
-  const loginFailed = (loginError) => {};
+  const loginFailed = (loginError) => { };
 
-  const logout = () => {};
+  const logout = () => { };
 
   const login = () => {
     // Include userId in the path
@@ -31,11 +31,8 @@ export const LogIn = () => {
 
   return (
     <Main>
-      <HeaderText>Logga In</HeaderText>
-   
       <Form>
-      <FormHeader>Response :</FormHeader>
-      <Response>{`${statusMessage}`}</Response>
+        <Response>{`${statusMessage}`}</Response>
       </Form>
       {/* <h4>userId :</h4>
       <p> {`${userId}`}</p>
@@ -51,7 +48,7 @@ export const LogIn = () => {
 //   : {
 
 //   },
- 
+
 
 // });
 

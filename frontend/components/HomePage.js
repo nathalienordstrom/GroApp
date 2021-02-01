@@ -40,7 +40,7 @@ const HomePage = ({ navigation }) => {
                 <Image source={logo} style={styles.image} />
             </BackgroundImage>
             <Buttons>
-                <TouchableOpacity onPress={() => navigation.navigate('LoginForm')}>
+                <TouchableOpacity onPress={() => navigation.navigate('SignUpForm')}>
                     <View style={styles.button}>
                         <ButtonText>Bli medlem</ButtonText>
                     </View>
@@ -58,7 +58,7 @@ const HomePage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     image: {
-        marginTop: 100,
+        marginTop: 60,
         width: 350,
         height: 550
     },
@@ -81,12 +81,23 @@ const styles = StyleSheet.create({
         paddingRight: 20,
         paddingTop: 10,
         paddingBottom: 10,
+        width: 200,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 50,
-        backgroundColor: '#D2D09D',
-        marginTop: 5,
-        margin: 5,
+        margin: 8,
+        backgroundColor: 'white',
+        shadowColor: '#202020',
+        shadowOffset: { width: 1, height: 1 },
+        shadowRadius: 4,
+        shadowColor: 'black',
+        shadowOpacity: 2,
+        shadowOffset: {
+            height: 1,
+            width: 1,
+          },
+          shadowRadius: 1,
+          elevation: 6,
         
     }
 })
@@ -108,14 +119,15 @@ const Icon = styled.View`
 align-items:center;
 `
 const Buttons = styled.View`
-flex-direction: row;
-margin-top: 20px;
+flex-direction: column;
 justify-content: center;
+align-items: center;
 `
 
 const ButtonText = styled.Text`
-color: white;
+color: grey;
 font-size: 20px;
+
 `
 
 
