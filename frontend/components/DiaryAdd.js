@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native'
 import { Entypo } from '@expo/vector-icons';
 
 const DiaryAdd = ({ submitHandler }) => {
+    
     const [text, setText] = useState('');
 
     const changeHandler = (val) => {

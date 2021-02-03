@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, Image, StyleSheet, Linking, FlatList, Text} from 'react-native';
+import { useSelector, useDispatch } from "react-redux";
+import { TouchableOpacity, Image, StyleSheet, Linking, FlatList, Text } from 'react-native';
 
 import Header from './Header';
+
+import { user } from "../reducers/user";
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -14,31 +17,33 @@ import Morot from '../assets/morot.png';
 import HackadMorot from '../assets/hackadmorot.png';
 import MorotBlom from '../assets/morotblom.png';
 
-import Added from './Added';
-import { black } from 'react-native-paper/lib/typescript/styles/colors';
-
-const NAME_URL = "http://localhost:8080/users";
-
+const NAME_URL = "http://localhost:8080/profile";
 
 const Profile = ({ navigation }) => {
-    const [food, setFood] = useState([])
-    const [name, setName] = useState([])
+    
+    const dispatch = useDispatch();
+    const name = useSelector((store) => store.user.login.name);
+    const userId = useSelector((store) => store.user.login.userId);
+    const accessToken = useSelector((store) => store.user.login.accessToken);
 
-    const pressHandler = (key) => {
-        setFood((prevFood) => {
-            return prevFood.filter(food => food.key != key);
-        })
-
-        fetch(NAME_URL, {
-            method: "GET",
-            body: JSON.stringify({ name, password }),
-            headers: { "Content-Type": "application/json" },
-          })
-            .then((res) => res.json())
-            .then((json) => {
-                setName(json.results)
+    const userName = (userNameResponse) => {
+        dispatch(
+            user.actions.setName({
+                name: userNameResponse.name,
             })
-    }
+        );
+    };
+
+    useEffect (() => {
+        fetch(`${NAME_URL}`, {
+            method: "GET",
+            // body: JSON.stringify({profile}),
+            headers: { "Content-Type": "application/json", "Authorization": accessToken },
+        })
+            .then((res) => res.json())
+            .then((json) => userName(json))
+    }, [])
+
 
 
     return (
@@ -48,30 +53,24 @@ const Profile = ({ navigation }) => {
                     <HeaderText>
                         Profil
                         </HeaderText>
-                        <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
                         <Header />
                     </TouchableOpacity>
                 </HeaderContainer>
 
                 <ProfilBox>
                     <Image source={Morot} style={styles.morot} />
-                    <ProfilName>
-                    {names.map((name) => (
-                        <Text style={styled.profileName} alt={name.name}>Hej</Text>
-                    ))};
-                    </ProfilName> 
+
                     <ListContainer>
                         <List>
+                            <ListText>
+                                {`${name}`}
+                            </ListText>
 
-                            <FlatList
-                                data={food}
-                                renderItem={({ item }) => (
-                                    <Added item={item} pressHandler={pressHandler} />
-                                )}
-                            />
+
                         </List>
                     </ListContainer>
-                   
+
                 </ProfilBox>
 
                 <ContentBox>
@@ -82,7 +81,7 @@ const Profile = ({ navigation }) => {
                         <Image source={HackadMorot} style={styles.hackadMorot} />
                     </ImageBoxOne>
                     <Box>
-                    <Ionicons name="md-key-outline" size={35} color="white" />
+                        <Ionicons name="md-key-outline" size={35} color="white" />
                         <TextBox>Konto  </TextBox>
                     </Box>
                     <Box>
@@ -163,10 +162,6 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOpacity: 21,
     },
-    profileName : {
-        fontSize: 20,'
-    }
-
 })
 
 const Main = styled.View`
@@ -191,27 +186,22 @@ align-items: center;
 `
 const ProfilBox = styled.View`
 flex-direction:row;
-
-
-`
-const ProfilName = styled.Text`
-font-size: 50px;
-color: white;
-padding-right: 10px;
-padding-top: 40px;
-
-flex:1;
 `
 const ListContainer = styled.View`
-width: 100%;
+width: 300px;
+align-items: center;
 `
 const List = styled.View`
 border-radius: 20px;
 margin-top: 40px;
 background-color: #CE7937;
-padding: 15px 0 15px 10px;
-width: 200px;
+padding: 15px 15px 15px 15px;
 box-shadow: 0px 0px 8px #6F392E;
+align-items: center;
+`
+const ListText = styled.Text`
+color: white;
+font-size: 30px;
 `
 const ContentBox = styled.View`
 padding: 0 0 30px 20px;
@@ -235,7 +225,6 @@ color: white;
 font-size: 30px;
 padding-left: 10px;
 `
-
 const FooterContainer = styled.View`
 margin-top: 0px;
 height: 100px;
@@ -246,6 +235,7 @@ justify-content: space-evenly;
 `
 const IconText = styled.Text`
 font-size: 15px;
+color: black;
 `
 
 const Icon = styled.View`

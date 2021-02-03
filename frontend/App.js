@@ -66,23 +66,22 @@ const App = () => {
         <Stack.Navigator initialRouteName="HomeActivity"
           screenOptions={{ headerShown: false }} initialRouteName="Home">
 
-
-          <Stack.Screen
-            name="HomePage"
-            component={HomePage} />
-
           <Stack.Screen
             name='Diary'
             component={Diary}
           />
 
           <Stack.Screen
+            name="HomePage"
+            component={HomePage} />
+
+
+
+
+          <Stack.Screen
             name="Profile"
             component={Profile}
           />
-
-
-
 
           <Stack.Screen
             name="LoginForm"

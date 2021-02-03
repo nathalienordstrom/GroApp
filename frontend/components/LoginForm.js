@@ -4,8 +4,6 @@ import { user } from "../reducers/user";
 import styled from 'styled-components/native';
 import { FlatList, StyleSheet, View, Alert, Image, TouchableOpacity, Text } from 'react-native';
 
-import AnimatedInput from 'react-native-animated-input';
-
 import Photo from '../assets/Dokumentlayout3.jpg';
 import LogIn from './LogIn';
 import Profile from './Profile'

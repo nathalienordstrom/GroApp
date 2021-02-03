@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import LogIn from "./LogIn";
 import { useDispatch, useSelector } from "react-redux";
 import { user } from "../reducers/user";
 import styled from 'styled-components/native';
-import { FlatList, StyleSheet, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native'
 
 import Photo from '../assets/Dokumentlayout3.jpg'
 import SignUp from './SignUp';
-import LoginForm from './LoginForm'
 
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { Zocial } from '@expo/vector-icons';
+
 
 const SIGNUP_URL = "http://localhost:8080/users";
 const LOGIN_URL = "http://localhost:8080/sessions";
