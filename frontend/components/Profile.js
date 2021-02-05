@@ -53,7 +53,7 @@ const Profile = ({ navigation }) => {
                     <HeaderText>
                         Profil
                         </HeaderText>
-                    <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('HomePage')} >
                     
                     <Header />
                     </TouchableOpacity>

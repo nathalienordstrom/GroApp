@@ -206,6 +206,7 @@ margin-top: 30px;
 const Input = styled.TextInput`
 font-size: 20px;
 padding-left: 20px;
+width: 90%;
 `
 
 

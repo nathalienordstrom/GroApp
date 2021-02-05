@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         shadowColor: 'black',
         shadowOpacity: 21,
+        backgroundColor: '#BD614E'
     }
 
 })

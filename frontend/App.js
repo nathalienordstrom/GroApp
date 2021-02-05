@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useState } from 'react';
 import { Provider } from "react-redux";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { user } from "./reducers/user";
@@ -45,47 +44,42 @@ const App = () => {
 
   return (
     <NavigationContainer>
-    <Provider store={store}>
-     
+      <Provider store={store}>
+
 
         <Stack.Navigator initialRouteName="HomeActivity"
           screenOptions={{ headerShown: false }} initialRouteName="Home">
-          <Stack.Screen
-            name="Profile"
-            component={Profile}
-          />
 
-          <Stack.Screen
-            name="HomePage"
-            component={HomePage}
-            />
-
-          <Stack.Screen
+<Stack.Screen
             name='Diary'
             component={Diary}
           />
-
-
-
+          
           <Stack.Screen
-            name="LoginForm"
-            component={LoginForm} />
-
+            name="HomePage"
+            component={HomePage}
+          />
 
           <Stack.Screen
             name="SignUpForm"
             component={SignUpForm} />
 
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+          />
 
 
+         
 
-
+          <Stack.Screen
+            name="LoginForm"
+            component={LoginForm} />
 
           <Stack.Screen
             name="Explore"
             component={Explore}
           />
-
 
           <Stack.Screen
             name="ExOne"
@@ -137,11 +131,6 @@ const App = () => {
             component={ExThirteen}
           />
 
-
-
-
-
-
           <Stack.Screen
             name="Statistics"
             component={Statistics}
@@ -155,8 +144,8 @@ const App = () => {
 
 
         </Stack.Navigator>
-      
-    </Provider>
+
+      </Provider>
     </NavigationContainer>
   )
 }
