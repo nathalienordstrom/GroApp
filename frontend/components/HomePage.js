@@ -1,37 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, Image, TouchableOpacity, TextInput, View } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, View } from 'react-native';
 import logo from '../assets/background.png';
 
-import { FontAwesome } from '@expo/vector-icons';
-
-import { EvilIcons } from '@expo/vector-icons';
-
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
 const HomePage = ({ navigation }) => {
-    const [food, setFood] = useState([
-        // { text: 'Broccoli', key: '1' },
-        // { text: 'Morot', key: '2' },
-        // { text: 'Ärtor', key: '3' },
 
-    ])
-
-    const submitHandler = (text) => {
-
-        if (text.length > 2) {
-            setFood((prevFood) => {
-                return [
-                    { text: text, key: Math.random().toString() },
-                    ...prevFood
-                ];
-            })
-        } else {
-            Alert.alert('Oops!', 'Mer än 2 bokstäver behövs', [
-                { text: 'Ok', onPress: () => console.log('alert closed') }
-            ]);
-        }
-    }
+    
 
     return (
         <Container>

@@ -27,7 +27,7 @@ export const LoginForm = ({ navigation }) => {
       user.actions.setAccessToken({ accessToken: loginResponse.accessToken })
     );
     dispatch(user.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(user.actions.setStatusMessage({ statusMessage: 'Fel namn eller lösenord' }));
+    dispatch(user.actions.setStatusMessage({ statusMessage: 'Lyckades' }));
 
   };
 

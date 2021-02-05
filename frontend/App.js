@@ -33,7 +33,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 
-const URL = "http://localhost:8080/users";
 
 const reducer = combineReducers({ user: user.reducer });
 
@@ -42,52 +41,35 @@ const store = configureStore({ reducer });
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
 
-  // To sign up a user.
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    fetch(URL, {
-      method: "POST",
-      body: JSON.stringify({ name, password }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      .catch((err) => console.log("error:", err));
-  }
 
   return (
+    <NavigationContainer>
     <Provider store={store}>
-      <NavigationContainer>
+     
 
         <Stack.Navigator initialRouteName="HomeActivity"
           screenOptions={{ headerShown: false }} initialRouteName="Home">
-
-          <Stack.Screen
-            name='Diary'
-            component={Diary}
-          />
-
-          <Stack.Screen
-            name="HomePage"
-            component={HomePage} />
-
-
-
-
           <Stack.Screen
             name="Profile"
             component={Profile}
           />
 
           <Stack.Screen
+            name="HomePage"
+            component={HomePage}
+            />
+
+          <Stack.Screen
+            name='Diary'
+            component={Diary}
+          />
+
+
+
+          <Stack.Screen
             name="LoginForm"
             component={LoginForm} />
-
-
 
 
           <Stack.Screen
@@ -173,8 +155,9 @@ const App = () => {
 
 
         </Stack.Navigator>
-      </NavigationContainer>
+      
     </Provider>
+    </NavigationContainer>
   )
 }
 

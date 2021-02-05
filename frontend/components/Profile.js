@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Component } from 'react';
 import styled from 'styled-components/native';
 import { useSelector, useDispatch } from "react-redux";
-import { TouchableOpacity, Image, StyleSheet, Linking, FlatList, Text } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet, Linking, Button } from 'react-native';
 
 import Header from './Header';
 
@@ -20,7 +20,7 @@ import MorotBlom from '../assets/morotblom.png';
 const NAME_URL = "http://localhost:8080/profile";
 
 const Profile = ({ navigation }) => {
-    
+
     const dispatch = useDispatch();
     const name = useSelector((store) => store.user.login.name);
     const userId = useSelector((store) => store.user.login.userId);
@@ -34,7 +34,7 @@ const Profile = ({ navigation }) => {
         );
     };
 
-    useEffect (() => {
+    useEffect(() => {
         fetch(`${NAME_URL}`, {
             method: "GET",
             // body: JSON.stringify({profile}),
@@ -54,7 +54,8 @@ const Profile = ({ navigation }) => {
                         Profil
                         </HeaderText>
                     <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
-                        <Header />
+                    
+                    <Header />
                     </TouchableOpacity>
                 </HeaderContainer>
 
@@ -91,7 +92,7 @@ const Profile = ({ navigation }) => {
                     </Box>
                     <Box>
                         <AntDesign name="mail" size={30} color="white" />
-                        <TouchableOpacity onPress={() => Linking.openURL('mailto:gro.by.neo@gmail.com?subject=SendMail&body=Description',)}>
+                        <TouchableOpacity onPress={() => Linking.openURL('mailto:gro.by.neo@gmail.com?subject=SendMail&body=Hej!',)}>
                             <TextBox>Kontakta support</TextBox>
                         </TouchableOpacity>
                     </Box>

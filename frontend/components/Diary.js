@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, Image, Alert, ScrollView, TouchableOpacity, Text } from 'react-native'
+import { FlatList, StyleSheet, Image, Alert, ScrollView, TouchableOpacity, Text, View } from 'react-native'
 import styled from 'styled-components/native';
 
 import apple from '../assets/apple.png';
@@ -17,6 +17,8 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+
+
 
 // import CalendarStrip from 'react-native-calendar-strip';
 
@@ -81,7 +83,7 @@ const Diary = ({ navigation }) => {
                     </FormContainer>
 
                     <ListContainer>
-                        <List>
+                        <View style={styles.list} >
 
                             <FlatList
                                 data={food}
@@ -89,7 +91,7 @@ const Diary = ({ navigation }) => {
                                     <DiaryFood item={item} pressHandler={pressHandler} />
                                 )}
                             />
-                        </List>
+                        </View>
                     </ListContainer>
 
                     <PhotoDiv>
@@ -172,9 +174,23 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         shadowColor: 'black',
         shadowOpacity: 21,
+    }, list:{
+        borderRadius: 20,
+        marginTop:30,
+        marginBottom: 20,
+        paddingTop: 15,
+        paddingBottom: 15,
+        paddingLeft: 10,
+        width: 320,
+        shadowColor: '#202020',
+        shadowOffset: { width: 0, height: 5 },
+        shadowRadius: 4,
+        shadowColor: 'black',
+        shadowOpacity: 21,
     }
 
 })
+
 
 const Main = styled.View`
 background-color: #BD614E;
@@ -191,13 +207,7 @@ padding: 10px 0 0 40px;
 color: white;
 font-size: 35px;
 align-items: center;
-
 `
-const CalenderContainer = styled.View`
-flex:1;
-`
-
-
 const FormContainer = styled.View`
 margin-top: 0px;
 width: 100%;
@@ -226,15 +236,7 @@ width: 100%;
 align-items: center;
 margin-bottom: 10px;
 `
-const List = styled.View`
-border-radius: 20px;
-margin-top: 20px;
-margin-bottom: 20px;
-background-color: white;
-padding: 15px 0 15px 10px;
-width: 320px;
-box-shadow: 0px 0px 8px #6F392E;
-`
+
 const PhotoDiv = styled.View`
 width: 100%;
 flex-direction:row;

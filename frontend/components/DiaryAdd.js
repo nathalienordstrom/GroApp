@@ -14,16 +14,16 @@ const DiaryAdd = ({ submitHandler }) => {
         <Main>
             <InputBox>
                 <Input
-                    clearButtonMode="always"
                     placeholderTextColor="white"
                     placeholder='...'
+                    maxLength= "20"
                     onChangeText={(val) => changeHandler(val)}
                 />
             </InputBox>
             <TouchableOpacity onPress={() => submitHandler(text)} >
                 <ButtonBox>
 
-                    <ButtonText><Entypo name="heart-outlined" size={30} color="white" /></ButtonText>
+                    <ButtonText><Entypo name="heart-outlined" size={40} color="white" /></ButtonText>
 
                 </ButtonBox>
             </TouchableOpacity>

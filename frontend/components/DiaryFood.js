@@ -21,8 +21,8 @@ margin-right: 10px;
 margin-left: 10px;
 `
 const Text = styled.Text`
-font-size: 20px; 
-color:black;
+font-size: 25px; 
+color:white;
 `
 const List = styled.View`
 border-radius: 20px;
