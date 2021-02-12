@@ -24,16 +24,14 @@ const ExNine = ({ navigation }) => {
 
             <Article>
                 <Text style={styles.article}>
-                     Nu ska eran matresa börja och den kommer innefatta
-                    många olika delar för barnet. Alla sinnen kommer att få 
-                    nya spännande upplevelser. Nya lukter, smaker, konsistenser 
-                    och även koordinationen kommer få tränas nu. Att hålla 
-                    en sked och att den ska letar sig hela vägen till munnen 
-                    behöver inte alltid vara så lätt. 
-
-                    Börja med att mata smakprover av puré från din
-                    fingertopp och senare med en plattare, mjuk sked.
-                    Låt gärna barnet utforska och känna på purén med händerna.
+               Risken att utveckla celiaki tidigt i livet tycks öka om barn äter stora mängder
+               gluten. När svenska forskare följde barn med genetisk risk för celiaki, såg de
+               att de barn som åt mest gluten under sina första två år löpte en minst dubbelt
+               så hög risk att utveckla sjukdomen.
+               I en italiensk studie jämförde forskare barn som fick börja äta gluten tills de
+               var ett halvår gamla, med barn som fick vänta med gluten tills de var ett år.
+               När barnen fyllde två år hade dubbelt så många fått celiaki i gruppen som fick 
+               äta gluten tidigt, men vid fem års ålder var det ingen skillnad mellan barnen. 
                     
 
 
@@ -42,7 +40,8 @@ const ExNine = ({ navigation }) => {
 
             <Tips>
             <MaterialCommunityIcons name="lightbulb-on-outline" size={24} color="yellow"style={styles.icon} />
-                <Text style={styles.tips}> Om barnet hänger med kropp sdfdfsfs. </Text>
+                <Text style={styles.tips}>  Bebisar som äter mycket gluten tycks löpa större 
+                risk att utveckla glutenintolerans. </Text>
             </Tips>
 
             </Main>
@@ -62,33 +61,34 @@ const styles = StyleSheet.create({
     overlayContainer: {
         flexDirection: 'row',
     },
-    overlay: {
-        borderRadius: 20,
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        backgroundColor: '#94A968',
-    },
     overlayText: {
         position:'absolute',
         fontSize: 27,
         color: 'white',
-        marginTop:200,
+        marginTop:190,
         marginLeft: 20,
+        textShadowColor: '#202020',
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 3,
+        textShadowColor: 'black'
     },
     overlayIcon: {
         position:'absolute',
         marginTop:45,
         marginLeft: 10,
+        textShadowColor: '#202020',
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 3,
+        textShadowColor: 'black'
     },
     article:{
         color: 'white',
-        fontSize: 17
+        fontSize: 17,
+        marginBottom: 10,
     },
     tips:{
         fontSize: 20,
         color:'white',
-        // borderColor:'red',
-        // borderWidth:1,
         paddingLeft: 5,
         paddingTop:20,
         paddingBottom:20,
@@ -107,8 +107,8 @@ const styles = StyleSheet.create({
 
 
 const Main = styled.View`
-flex: 1;
 background-color:#5A673E;
+padding-bottom: 20px;
 `
 
 const Article = styled.View`

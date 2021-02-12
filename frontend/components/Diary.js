@@ -18,11 +18,11 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
+import { useNavigation } from '@react-navigation/native'
 
 
-// import CalendarStrip from 'react-native-calendar-strip';
-
-const Diary = ({ navigation }) => {
+const Diary = () => {
+    const navigation = useNavigation();
     const [food, setFood] = useState([])
     const pressHandler = (key) => {
         setFood((prevFood) => {
@@ -57,19 +57,7 @@ const Diary = ({ navigation }) => {
                             <Header />
                         </TouchableOpacity>
                     </HeaderContainer>
-
-                    {/* <CalenderContainer>
-                        <CalendarStrip
-                            scrollable
-                            style={{ height: 80, paddingTop: 20, paddingBottom: 10 }}
-                            calendarColor={'white'}
-                            calendarHeaderStyle={{ color: '#BD614E' }}
-                            dateNumberStyle={{ color: '#BD614E' }}
-                            dateNameStyle={{ color: 'black' }}
-                            iconContainer={{ flex: 0.1 }} />
-                    </CalenderContainer> */}
                     <FormContainer>
-
                         <Apple>
                             <Image source={apple} style={styles.imageApple} />
                         </Apple>
@@ -84,7 +72,6 @@ const Diary = ({ navigation }) => {
 
                     <ListContainer>
                         <View style={styles.list} >
-
                             <FlatList
                                 data={food}
                                 renderItem={({ item }) => (

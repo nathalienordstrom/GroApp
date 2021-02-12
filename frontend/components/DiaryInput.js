@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components/native';
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Entypo } from '@expo/vector-icons';
-import { TextInput } from 'react-native-gesture-handler';
 
 const DiaryInput = ({ submitHandler }) => {
     const [text, setText] = useState('');

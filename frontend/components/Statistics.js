@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { useSelector, useDispatch } from "react-redux";
 import { TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 
@@ -9,7 +10,36 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import Header from './Header'
 
-const Statistics = ({ navigation }) => {
+import { useNavigation } from '@react-navigation/native'
+
+const FOOD_URL = "http://localhost:8080/foods";
+
+const Statistics = () => {
+        const navigation = useNavigation();
+
+        const dispatch = useDispatch();
+        const name = useSelector((store) => store.food.foods.name);
+        const foodId = useSelector((store) => store.food.foods.foodId);
+        const accessToken = useSelector((store) => store.food.foods.accessToken);
+    
+        const foodName = (foodNameResponse) => {
+            dispatch(
+                food.actions.setName({
+                    name: foodNameResponse.name,
+                })
+            );
+        };
+    
+        useEffect(() => {
+            fetch(`${FOOD_URL}`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json", "Authorization": accessToken },
+            })
+                .then((res) => res.json())
+                .then((json) => foodName(json))
+        }, [])
+    
+
     return (
         <>
             <Main>
@@ -20,6 +50,7 @@ const Statistics = ({ navigation }) => {
                    
                         <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
                             <Header />
+                            {`${name}`}
                         </TouchableOpacity>
                 </HeaderContainer>
             </Main>

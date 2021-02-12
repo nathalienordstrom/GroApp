@@ -66,13 +66,21 @@ const styles = StyleSheet.create({
         position:'absolute',
         fontSize: 27,
         color: 'white',
-        marginTop:200,
+        marginTop:190,
         marginLeft: 20,
+        textShadowColor: '#202020',
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 3,
+        textShadowColor: 'black'
     },
     overlayIcon: {
         position:'absolute',
         marginTop:45,
         marginLeft: 10,
+        textShadowColor: '#202020',
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 3,
+        textShadowColor: 'black'
     },
     article:{
         color: 'white',

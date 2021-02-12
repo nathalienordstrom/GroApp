@@ -28,9 +28,10 @@ import Pea2 from '../assets/pea2.png'
 import Pea3 from '../assets/pea3.png'
 import Pea4 from '../assets/pea4.png'
 
+import { useNavigation } from '@react-navigation/native'
 
-const Explore = ({ navigation }) => {
-
+const Explore = () => {
+    const navigation = useNavigation();
     return (
         <>
             <Main>
@@ -96,7 +97,7 @@ const Explore = ({ navigation }) => {
 
                         <Boxes>
                             <BoxText>
-                                Prova mat - del 2
+                                Prova mat
                 </BoxText>
                             <ScrollView horizontal={true}>
 

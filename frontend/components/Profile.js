@@ -17,9 +17,13 @@ import Morot from '../assets/morot.png';
 import HackadMorot from '../assets/hackadmorot.png';
 import MorotBlom from '../assets/morotblom.png';
 
+import { useNavigation } from '@react-navigation/native'
+
+
 const NAME_URL = "http://localhost:8080/profile";
 
-const Profile = ({ navigation }) => {
+const Profile = () => {
+    const navigation = useNavigation();
 
     const dispatch = useDispatch();
     const name = useSelector((store) => store.user.login.name);
@@ -37,7 +41,6 @@ const Profile = ({ navigation }) => {
     useEffect(() => {
         fetch(`${NAME_URL}`, {
             method: "GET",
-            // body: JSON.stringify({profile}),
             headers: { "Content-Type": "application/json", "Authorization": accessToken },
         })
             .then((res) => res.json())
@@ -189,7 +192,7 @@ const ProfilBox = styled.View`
 flex-direction:row;
 `
 const ListContainer = styled.View`
-width: 300px;
+width: 255px;
 align-items: center;
 `
 const List = styled.View`

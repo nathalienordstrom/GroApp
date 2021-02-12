@@ -24,16 +24,16 @@ const ExTen = ({ navigation }) => {
 
             <Article>
                 <Text style={styles.article}>
-                     Nu ska eran matresa börja och den kommer innefatta
-                    många olika delar för barnet. Alla sinnen kommer att få 
-                    nya spännande upplevelser. Nya lukter, smaker, konsistenser 
-                    och även koordinationen kommer få tränas nu. Att hålla 
-                    en sked och att den ska letar sig hela vägen till munnen 
-                    behöver inte alltid vara så lätt. 
-
-                    Börja med att mata smakprover av puré från din
-                    fingertopp och senare med en plattare, mjuk sked.
-                    Låt gärna barnet utforska och känna på purén med händerna.
+                    Till skillnad från allergi, är celiaki en autoimmun sjukdom, där immunförsvare
+                    attackerar den egna kroppen. För att skydda bebisar mot celiaki har föräldrar
+                    tidigare fått rådet att introducera gluten redan vid fyra-sex månaders ålder. 
+                    Många har låtit sina spädbarn suga på smörgåsrån, äta vitt bröd eller smaka
+                    på industiproducerad pulvergröt.
+                    Rådet att introducera gluten tidigt hänger delvis kvar inom barnhälsovården,
+                    men Livsmedlesverket meddelade våren 2016 att de behöver omvärdera sina rekommendationer,
+                    eftersom att äta gluten tidigt inte ger något extra sjydd. Den senaste forskningen
+                    på området tyder istället på att mängden gluten verkar ha betydelse:
+                    bebisar som äter mycket gluten tycks löpa större risk att utveckla celiaki.
                     
 
 
@@ -42,7 +42,7 @@ const ExTen = ({ navigation }) => {
 
             <Tips>
             <MaterialCommunityIcons name="lightbulb-on-outline" size={24} color="yellow"style={styles.icon} />
-                <Text style={styles.tips}> Om barnet hänger med kropp sdfdfsfs. </Text>
+                <Text style={styles.tips}> Vid celiaki attackerar immunförsvaret tarmens slemhinna och tarmludd </Text>
             </Tips>
 
             </Main>
@@ -72,13 +72,21 @@ const styles = StyleSheet.create({
         position:'absolute',
         fontSize: 27,
         color: 'white',
-        marginTop:200,
+        marginTop:190,
         marginLeft: 20,
+        textShadowColor: '#202020',
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 3,
+        textShadowColor: 'black'
     },
     overlayIcon: {
         position:'absolute',
         marginTop:45,
         marginLeft: 10,
+        textShadowColor: '#202020',
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 3,
+        textShadowColor: 'black'
     },
     article:{
         color: 'white',
@@ -87,8 +95,6 @@ const styles = StyleSheet.create({
     tips:{
         fontSize: 20,
         color:'white',
-        // borderColor:'red',
-        // borderWidth:1,
         paddingLeft: 5,
         paddingTop:20,
         paddingBottom:20,
@@ -96,8 +102,6 @@ const styles = StyleSheet.create({
 
     },
     icon: {
-        // borderColor:'red',
-        // borderWidth:1,
         padding: 5,
 
     }
@@ -107,7 +111,7 @@ const styles = StyleSheet.create({
 
 
 const Main = styled.View`
-flex: 1;
+padding-bottom: 20px;
 background-color:#5A673E;
 `
 

@@ -27,7 +27,7 @@ export const LoginForm = ({ navigation }) => {
       user.actions.setAccessToken({ accessToken: loginResponse.accessToken })
     );
     dispatch(user.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(user.actions.setStatusMessage({ statusMessage: 'Lyckades' }));
+    dispatch(user.actions.setStatusMessage({ statusMessage: 'Prova igen' }));
 
   };
 
@@ -64,7 +64,7 @@ export const LoginForm = ({ navigation }) => {
       .then((json) => handleLoginSuccess(json))
       .catch((err) => handleLoginFailed(err));
   };
-
+ 
 
   if (!accessToken) {
     // If user is logged out, show login form

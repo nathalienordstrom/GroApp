@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { user } from "../reducers/user";
 import styled from 'styled-components/native';
 import { StyleSheet, View, Image, TouchableOpacity } from 'react-native'
@@ -20,7 +20,6 @@ export const SignUpForm = ({navigation}) => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
 
   const handleLoginSuccess = (loginResponse) => {
     dispatch(
@@ -47,7 +46,7 @@ export const SignUpForm = ({navigation}) => {
 
     fetch(SIGNUP_URL, {
       method: "POST",
-      body: JSON.stringify({ name, password, email }),
+      body: JSON.stringify({ name, password }),
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
@@ -71,8 +70,6 @@ export const SignUpForm = ({navigation}) => {
       .catch((err) => handleLoginFailed(err));
   };
 
-
-    // If user is logged out, show login form
     return (
       <Main>
 
@@ -97,7 +94,7 @@ export const SignUpForm = ({navigation}) => {
                 <Input
                   required
                   value={name}
-                  placeholder='namn'
+                  placeholder='barnets namn'
                   onChange={(event) => setName(event.target.value)}
                 />
               </FormInput>

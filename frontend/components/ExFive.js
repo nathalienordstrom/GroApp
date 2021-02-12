@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        backgroundColor: '#94A968',
+        backgroundColor: 'transparent',
     },
     overlayText: {
         position:'absolute',

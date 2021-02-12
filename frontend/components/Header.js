@@ -2,10 +2,12 @@ import React from 'react'
 import { Image, StyleSheet, TouchableOpacity, Button } from 'react-native'
 import styled from 'styled-components/native';
 
+import { useNavigation } from '@react-navigation/native'
 
 import headerImage from '../assets/logggo.png';
 
-const Header = ({ navigation }) => {
+const Header = () => {
+const navigation = useNavigation();
     return (
         <HeaderContainer>
                  <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
